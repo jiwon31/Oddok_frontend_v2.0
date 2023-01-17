@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import App from "./App";
 import "./index.css";
 import "./assets/styles";
 import MainHome from "@pages/MainHome/MainHome";
@@ -16,6 +15,7 @@ import CreateRoom from "@pages/CreateRoom";
 import JoinRoom from "@pages/JoinRoom";
 import StudyRoom from "@pages/StudyRoom/StudyRoom";
 import ShareStudyTime from "@pages/ShareStudyTime/ShareStudyTime";
+import App from "./App";
 
 const router = createBrowserRouter([
   {

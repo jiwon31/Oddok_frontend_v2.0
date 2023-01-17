@@ -1,9 +1,18 @@
 {
   "env": {
     "browser": true,
-    "es2021": true
+    "es2021": true,
+    "node": true
   },
-  "extends": ["plugin:react/recommended", "airbnb", "prettier"],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["react", "react-hooks", "@typescript-eslint", "import"],
+  "extends": [
+    "plugin:react/recommended",
+    "airbnb",
+    "prettier",
+    "plugin:@typescript-eslint/recommended",
+    "prettier/@typescript-eslint"
+  ],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -11,12 +20,11 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["react", "react-hooks"],
   "rules": {
     "no-console": "off",
     "no-unused-vars": "off",
     "react/react-in-jsx-scope": "off",
-    "react/jsx-one-expression-per-line": 0,
+    "react/jsx-one-expression-per-line": "off",
     "react/prop-types": "off",
     "jsx-a11y/media-has-caption": "off",
     "react-hooks/rules-of-hooks": "error",
@@ -39,6 +47,7 @@
     "no-restricted-globals": "off",
     "jsx-a11y/no-noninteractive-element-interactions ": "off",
     "import/no-cycle": "off",
-    "react/jsx-props-no-spreading": "off"
+    "react/jsx-props-no-spreading": "off",
+    "react/jsx-filename-extension": ["warn", { "extensions": [".jsx", ".js", ".tsx", ".ts"] }]
   }
 }
