@@ -1,5 +1,5 @@
 const { alias, configPaths } = require("react-app-rewire-alias");
 
-const aliasMap = configPaths("./jsconfig.path.json");
-
-module.exports = alias(aliasMap);
+module.exports = function override(config) {
+  return alias(configPaths("./tsconfig.path.json"))(config);
+};
