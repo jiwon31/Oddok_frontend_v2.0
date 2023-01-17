@@ -6,13 +6,7 @@
   },
   "parser": "@typescript-eslint/parser",
   "plugins": ["react", "react-hooks", "@typescript-eslint", "import"],
-  "extends": [
-    "plugin:react/recommended",
-    "airbnb",
-    "prettier",
-    "plugin:@typescript-eslint/recommended",
-    "prettier/@typescript-eslint"
-  ],
+  "extends": ["plugin:react/recommended", "airbnb", "prettier", "plugin:@typescript-eslint/recommended"],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
