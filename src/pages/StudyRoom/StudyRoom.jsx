@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useRecoilState, useSetRecoilState, useResetRecoilState } from "recoil";
 import { roomInfoState, deviceState } from "@recoil/studyroom-state";
 import { errorState } from "@recoil/error-state";
@@ -22,7 +22,8 @@ import useModal from "@hooks/useModal";
 import styles from "./StudyRoom.module.css";
 
 function StudyRoom() {
-  const history = useHistory();
+  const navigate = useNavigate();
+  const { state } = useLocation();
   const { roomId } = useParams();
   const [session, setSession] = useState(initSession());
   const { localUser, setLocalUser, videoActive, audioActive, toggleVideo, toggleAudio } = useManageLocalUser();
@@ -60,19 +61,19 @@ function StudyRoom() {
     await leaveStudyRoom(roomId);
     session.disconnect();
     resetState();
-    history.replace("/");
+    navigate("/");
   };
 
   const goToSharePage = async () => {
     await leaveStudyRoom(roomId);
     session.disconnect();
     resetState();
-    history.replace("/share/study-time");
+    navigate("/share/study-time");
   };
 
   const startOpenvidu = async () => {
     const [_, deviceId] = await Promise.all([
-      connectToSession(session, history.location.state.token, localUser, roomId),
+      connectToSession(session, state.token, localUser, roomId),
       connectDevice(deviceStatus),
     ]);
     const stream = await initPublisher(deviceId, deviceStatus);
@@ -81,8 +82,8 @@ function StudyRoom() {
   };
 
   useEffect(() => {
-    if (!history.location.state) {
-      history.push(`/studyroom/${roomId}/setting`);
+    if (!state) {
+      navigate(`/studyroom/${roomId}/setting`);
     }
     startOpenvidu().catch((error) => setError(error));
   }, []);

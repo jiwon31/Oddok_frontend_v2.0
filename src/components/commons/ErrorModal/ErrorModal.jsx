@@ -1,5 +1,4 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { errorState } from "@recoil/error-state";
 import { Modal } from "@components/commons";
@@ -31,4 +30,4 @@ function ErrorModal({ history }) {
   );
 }
 
-export default withRouter(ErrorModal);
+export default ErrorModal;

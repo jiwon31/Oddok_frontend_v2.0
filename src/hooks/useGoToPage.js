@@ -1,30 +1,29 @@
 import { useCallback } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function useGoToPage() {
-  const history = useHistory();
+  const navigate = useNavigate();
 
-  const goToMain = useCallback(() => history.push("/"), [history]);
+  const goToMain = useCallback(() => navigate("/"), [navigate]);
 
-  const goToLogin = useCallback(() => history.push("/login"), [history]);
+  const goToLogin = useCallback(() => navigate("/login"), [navigate]);
 
-  const goToSearch = useCallback(() => history.push("/search"), [history]);
+  const goToSearch = useCallback(() => navigate("/search"), [navigate]);
 
-  const goToMyPage = useCallback(() => history.push("/mypage"), [history]);
+  const goToMyPage = useCallback(() => navigate("/mypage"), [navigate]);
 
-  const goToCreate = useCallback(() => history.push("/studyroom/create"), [history]);
+  const goToCreate = useCallback(() => navigate("/studyroom/create"), [navigate]);
 
-  const goToSetting = useCallback((id) => history.push(`/studyroom/${id}/setting`), [history]);
+  const goToSetting = useCallback((id) => navigate(`/studyroom/${id}/setting`), [navigate]);
 
   const goToStudy = useCallback(
     (id, token) =>
-      history.push({
-        pathname: `/studyroom/${id}`,
+      navigate(`/studyroom/${id}`, {
         state: {
           token,
         },
       }),
-    [history],
+    [navigate],
   );
 
   return { goToMain, goToLogin, goToSearch, goToMyPage, goToCreate, goToSetting, goToStudy };
