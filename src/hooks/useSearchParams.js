@@ -1,5 +1,5 @@
 import { useCallback, useMemo } from "react";
-import { useNavigate, useL, useNavigateocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const useSearchParams = () => {
   const navigate = useNavigate();
@@ -7,11 +7,11 @@ const useSearchParams = () => {
   const searchParams = useMemo(() => new URLSearchParams(search), [search]);
 
   const setSearchParams = useCallback(
-    (key, value, pathname = pathname) => {
+    (key, value, path = pathname) => {
       if (value) searchParams.set(key, value);
       else searchParams.delete(key);
       navigate({
-        pathname,
+        pathname: path,
         search: searchParams.toString(),
       });
     },
