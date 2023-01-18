@@ -8,13 +8,15 @@ import Login from "@pages/Login/Login";
 import RedirectPage from "@pages/Login/RedirectPage";
 import LogoutRedirectPage from "@pages/LogoutRedirectPage/LogoutRedirectPage";
 import Search from "@pages/Search/Search";
+import SearchResultPage from "@pages/SearchResultPage/SearchResultPage";
 import MyPage from "@pages/MyPage/MyPage";
 import NotFoundPage from "@pages/NotFoundPage/NotFoundPage";
-import { PrivateRoute, PublicRoute } from "@pages/Route";
+import { PrivateRoute, PublicRoute } from "@pages/Routes";
 import CreateRoom from "@pages/CreateRoom";
 import JoinRoom from "@pages/JoinRoom";
 import StudyRoom from "@pages/StudyRoom/StudyRoom";
 import ShareStudyTime from "@pages/ShareStudyTime/ShareStudyTime";
+import { Layout } from "@components/layout";
 import App from "./App";
 
 const router = createBrowserRouter([
@@ -22,14 +24,29 @@ const router = createBrowserRouter([
     path: "/",
     element: <App />,
     children: [
-      { index: true, path: "/", element: <MainHome /> },
       {
-        path: "/login",
-        element: (
-          <PublicRoute restricted>
-            <Login />
-          </PublicRoute>
-        ),
+        element: <Layout />,
+        children: [
+          { index: true, path: "/", element: <MainHome /> },
+          {
+            path: "/login",
+            element: (
+              <PublicRoute restricted>
+                <Login />
+              </PublicRoute>
+            ),
+          },
+          { path: "/search", element: <Search /> },
+          { path: "/search/studyroom", element: <SearchResultPage /> },
+          {
+            path: "/mypage",
+            element: (
+              <PrivateRoute>
+                <MyPage />
+              </PrivateRoute>
+            ),
+          },
+        ],
       },
       {
         path: "/login/oauth2/code/kakao",
@@ -44,15 +61,6 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <LogoutRedirectPage />
-          </PrivateRoute>
-        ),
-      },
-      { path: "/search", element: <Search /> },
-      {
-        path: "/mypage",
-        element: (
-          <PrivateRoute>
-            <MyPage />
           </PrivateRoute>
         ),
       },

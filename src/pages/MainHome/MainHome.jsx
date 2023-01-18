@@ -3,7 +3,6 @@ import { useRecoilState, useRecoilValue } from "recoil";
 import { userState } from "@recoil/user-state";
 import { bookmarkState } from "@recoil/bookmark-state";
 import { getBookmark } from "@api/bookmark-api";
-import { Layout } from "@components/layout";
 import { Bookmark, StudyRoomFeed, TotalParticipant } from "@components/home";
 import styles from "./MainHome.module.css";
 
@@ -21,15 +20,13 @@ function MainHome() {
   }, []);
 
   return (
-    <Layout>
-      <main className={styles.main}>
-        {!bookmark ? <TotalParticipant /> : <Bookmark bookmark={bookmark} />}
-        <section className={styles.studyroom_list}>
-          <h2>STUDY ROOM</h2>
-          <StudyRoomFeed />
-        </section>
-      </main>
-    </Layout>
+    <main className={styles.main}>
+      {!bookmark ? <TotalParticipant /> : <Bookmark bookmark={bookmark} />}
+      <section className={styles.studyroom_list}>
+        <h2>STUDY ROOM</h2>
+        <StudyRoomFeed />
+      </section>
+    </main>
   );
 }
 

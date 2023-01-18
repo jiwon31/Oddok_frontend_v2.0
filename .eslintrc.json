@@ -42,6 +42,7 @@
     "jsx-a11y/no-noninteractive-element-interactions ": "off",
     "import/no-cycle": "off",
     "react/jsx-props-no-spreading": "off",
-    "react/jsx-filename-extension": ["warn", { "extensions": [".jsx", ".js", ".tsx", ".ts"] }]
+    "react/jsx-filename-extension": ["warn", { "extensions": [".jsx", ".js", ".tsx", ".ts"] }],
+    "react/require-default-props": "off"
   }
 }
