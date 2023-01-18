@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer renders 1`] = `
+<footer
+  className="footer"
+>
+  <div
+    className="info"
+  >
+    <div
+      className="title"
+    >
+      <h2
+        className="logo"
+      >
+        ODDOK
+      </h2>
+      <p
+        className="name"
+      >
+        실시간 화상 스터디 서비스
+      </p>
+    </div>
+    <div
+      className="contact"
+    >
+      <p
+        className="contents"
+      >
+        Contact
+      </p>
+      <p
+        className="content"
+      >
+        yejin013@naver.com
+      </p>
+    </div>
+    <div
+      className="team"
+    >
+      <p
+        className="contents"
+      >
+        Team
+      </p>
+      <p
+        className="content"
+      >
+        DOBBY @숭실대학교 소프트웨어학부
+      </p>
+    </div>
+  </div>
+  <div
+    className="copyright"
+  >
+    <p>
+      Copyright Dobby 2022, All Rights Reserved.
+    </p>
+  </div>
+</footer>
+`;

@@ -22,7 +22,7 @@
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noUncheckedIndexedAccess": true,
-    "types": ["node"]
+    "types": ["jest", "node"]
   },
   "include": ["src", "**/*.{ts,tsx}"],
   "extends": "./tsconfig.path.json"
