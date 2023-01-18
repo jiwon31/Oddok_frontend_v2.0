@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { updateStudyRoom } from "@api/study-room-api";
-import { deleteStudyRoom } from "@api/mypage-api";
-import { Modal } from "@components/commons";
-import { SettingForm } from "@components/study";
-import { Room, EditButton } from "@components/mypage";
+import { updateStudyRoom } from "api/study-room-api";
+import { deleteStudyRoom } from "api/mypage-api";
+import { Modal } from "components/commons";
+import { SettingForm } from "components/study";
+import { Room, EditButton } from "components/mypage";
 import styles from "./MyRoomEditModal.module.css";
 
 function MyRoomEditModal({ roomData, onClose, refetch }) {

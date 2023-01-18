@@ -1,10 +1,10 @@
 import React from "react";
 import { useRecoilState, useSetRecoilState } from "recoil";
-import { userState } from "@recoil/user-state";
-import { errorState } from "@recoil/error-state";
-import { logout } from "@api/auth/auth-api";
-import { Loading } from "@components/commons";
-import { useAsync } from "@hooks";
+import { userState } from "recoil/user-state";
+import { errorState } from "recoil/error-state";
+import { logout } from "api/auth/auth-api";
+import { Loading } from "components/commons";
+import { useAsync } from "hooks";
 
 function LogoutRedirectPage() {
   const [user, setUserState] = useRecoilState(userState);

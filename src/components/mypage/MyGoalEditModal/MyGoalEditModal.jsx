@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { createProfile, updateProfile } from "@api/mypage-api";
-import { Modal, Calendar, Input, Dropdown, Textarea } from "@components/commons";
-import { dateParsing, dateFormatting } from "@utils";
-import { TARGET_TIME_OPTIONS } from "@utils/constants/options";
+import { createProfile, updateProfile } from "api/mypage-api";
+import { Modal, Calendar, Input, Dropdown, Textarea } from "components/commons";
+import { dateParsing, dateFormatting } from "utils";
+import { TARGET_TIME_OPTIONS } from "utils/constants/options";
 import styles from "./MyGoalEditModal.module.css";
 
 function MyGoalEditModal({ profileData, onClose, refetch }) {

@@ -1,8 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { useModal } from "@hooks";
-import { Modal } from "@components/commons";
-import { Cancel } from "@icons";
+import { useModal } from "hooks";
+import { Modal } from "components/commons";
+import { Cancel } from "assets/icons";
 import styles from "./CloseButton.module.css";
 
 function CloseButton() {

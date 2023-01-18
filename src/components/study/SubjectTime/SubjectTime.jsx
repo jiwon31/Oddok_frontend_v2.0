@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { selectedPlanState } from "@recoil/plan-state";
+import { selectedPlanState } from "recoil/plan-state";
 import {
   hourState,
   minuteState,
@@ -9,10 +9,10 @@ import {
   totalMinuteState,
   totalSecondState,
   studyTimeState,
-} from "@recoil/timer-state";
-import { saveTime } from "@api/time-record-api";
-import { Play, Pause, GoalOpen } from "@icons";
-import { stringifyDate } from "@utils";
+} from "recoil/timer-state";
+import { saveTime } from "api/time-record-api";
+import { Play, Pause, GoalOpen } from "assets/icons";
+import { stringifyDate } from "utils";
 import styles from "./SubjectTime.module.css";
 
 function SubjectTime({ onPlanBtnClick }) {

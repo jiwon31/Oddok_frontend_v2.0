@@ -1,10 +1,10 @@
-import React, { useState, useLayoutEffect, useEffect } from "react";
+import React, { useState, useLayoutEffect } from "react";
 import { useRecoilState } from "recoil";
-import { roomInfoState } from "@recoil/studyroom-state";
-import { ToggleButton, Dropdown, Input, Textarea, Calendar } from "@components/commons";
-import { VideoOn, VideoOff, MicOn, MicOff } from "@icons";
-import { TARGET_TIME_OPTIONS, USERLIMIT_OPTIONS } from "@utils/constants/options";
-import { dateParsing, dateFormatting } from "@utils";
+import { roomInfoState } from "recoil/studyroom-state";
+import { ToggleButton, Dropdown, Input, Textarea, Calendar } from "components/commons";
+import { VideoOn, VideoOff, MicOn, MicOff } from "assets/icons";
+import { TARGET_TIME_OPTIONS, USERLIMIT_OPTIONS } from "utils/constants/options";
+import { dateParsing, dateFormatting } from "utils";
 import CloseButton from "./CloseButton/CloseButton";
 import CategoryForm from "./CategoryForm/CategoryForm";
 import HashtagForm from "./HashtagForm/HashtagForm";

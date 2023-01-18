@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { userState } from "@recoil/user-state";
-import { bookmarkState } from "@recoil/bookmark-state";
-import { getBookmark } from "@api/bookmark-api";
-import { Bookmark, StudyRoomFeed, TotalParticipant } from "@components/home";
+import { userState } from "recoil/user-state";
+import { bookmarkState } from "recoil/bookmark-state";
+import { getBookmark } from "api/bookmark-api";
+import { Bookmark, StudyRoomFeed, TotalParticipant } from "components/home";
 import styles from "./MainHome.module.css";
 
 function MainHome() {

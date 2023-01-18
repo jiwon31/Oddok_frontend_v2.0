@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { getPopluarHashtag } from "@api/hashtag-api";
-import { HashtagButton } from "@components/commons";
-import { useSearchParams } from "@hooks";
+import { getPopluarHashtag } from "api/hashtag-api";
+import { HashtagButton } from "components/commons";
+import { useSearchParams } from "hooks";
 import styles from "./HashtagList.module.css";
 
 function HashtagList({ onToggle }) {

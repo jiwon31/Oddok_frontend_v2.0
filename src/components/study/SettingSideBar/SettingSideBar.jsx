@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { roomInfoState } from "@recoil/studyroom-state";
-import { userState } from "@recoil/user-state";
-import { Hashtag, Play, Pause } from "@icons";
-import { updateStudyRoom } from "@api/study-room-api";
+import { roomInfoState } from "recoil/studyroom-state";
+import { userState } from "recoil/user-state";
+import { Hashtag } from "assets/icons";
+import { updateStudyRoom } from "api/study-room-api";
 import { SettingForm } from "..";
 import styles from "./SettingSideBar.module.css";
 

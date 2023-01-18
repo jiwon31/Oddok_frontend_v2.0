@@ -1,4 +1,4 @@
-import { ErrorModal } from "@components/commons";
+import { ErrorModal } from "components/commons";
 import { Outlet } from "react-router-dom";
 import { RecoilRoot } from "recoil";
 

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { getTimeRecordList } from "@api/mypage-api";
-import { DatePicker, TimeRecordList, TimeTable } from "@components/mypage";
-import { getColor, dateFormatting } from "@utils";
+import { getTimeRecordList } from "api/mypage-api";
+import { DatePicker, TimeRecordList, TimeTable } from "components/mypage";
+import { getColor, dateFormatting } from "utils";
 import styles from "./StudyTime.module.css";
 
 function StudyTime() {

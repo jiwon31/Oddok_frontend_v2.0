@@ -1,9 +1,9 @@
 import React from "react";
 import { useRecoilValue } from "recoil";
-import { userState } from "@recoil/user-state";
-import { EditButton, AccountDeleteModal } from "@components/mypage";
-import { NicknameEditModal } from "@components/commons";
-import { useModal } from "@hooks";
+import { userState } from "recoil/user-state";
+import { EditButton, AccountDeleteModal } from "components/mypage";
+import { NicknameEditModal } from "components/commons";
+import { useModal } from "hooks";
 import styles from "./MyAccount.module.css";
 
 function MyAccount() {

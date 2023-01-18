@@ -1,12 +1,12 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useRecoilState } from "recoil";
-import { userState } from "@recoil/user-state";
-import { Search, Profile } from "@icons";
-import { getUserInfo } from "@api/user-api";
-import { NicknameEditModal } from "@components/commons";
-import { KAKAO_LOGOUT_URL } from "@api/auth/kakao";
-import { useModal, useGoToPage, useOutSideClick } from "@hooks";
+import { userState } from "recoil/user-state";
+import { getUserInfo } from "api/user-api";
+import { NicknameEditModal } from "components/commons";
+import { KAKAO_LOGOUT_URL } from "api/auth/kakao";
+import { useModal, useGoToPage, useOutSideClick } from "hooks";
 import { useLocation } from "react-router-dom";
+import { Profile, Search } from "assets/icons";
 import styles from "./Header.module.css";
 
 function Header() {

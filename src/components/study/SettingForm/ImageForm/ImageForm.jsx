@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
-import { Thumbnail } from "@components/commons";
-import { Image, Trash } from "@icons";
+import { Thumbnail } from "components/commons";
+import { Image, Trash } from "assets/icons";
 import styles from "./ImageForm.module.css";
 
 function ImageForm() {

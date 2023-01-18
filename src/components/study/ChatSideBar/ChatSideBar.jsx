@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useRecoilValue } from "recoil";
-import { userState } from "@recoil/user-state";
-import { Input } from "@components/commons";
-import { useInput } from "@hooks";
-import { SendButton } from "@icons";
+import { userState } from "recoil/user-state";
+import { Input } from "components/commons";
+import { useInput } from "hooks";
+import { SendButton } from "assets/icons";
 import ChatList from "./ChatList/ChatList";
 import styles from "./ChatSideBar.module.css";
 

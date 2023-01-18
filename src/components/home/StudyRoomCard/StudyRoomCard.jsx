@@ -1,12 +1,12 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React from "react";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { bookmarkState } from "@recoil/bookmark-state";
-import { userState } from "@recoil/user-state";
-import { saveBookmark, removeBookmark } from "@api/bookmark-api";
-import { PasswordModal, Thumbnail, UserCount } from "@components/commons";
-import { Lock, Unlock, BookMark, BookMarkHeart } from "@icons";
-import { useModal, useGoToPage } from "@hooks";
+import { bookmarkState } from "recoil/bookmark-state";
+import { userState } from "recoil/user-state";
+import { saveBookmark, removeBookmark } from "api/bookmark-api";
+import { PasswordModal, Thumbnail, UserCount } from "components/commons";
+import { Lock, Unlock, BookMark, BookMarkHeart } from "assets/icons";
+import { useModal, useGoToPage } from "hooks";
 import styles from "./StudyRoomCard.module.css";
 
 function StudyRoomCard({ roomData }) {

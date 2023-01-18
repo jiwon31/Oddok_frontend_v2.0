@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
-import { Input } from "@components/commons";
-import { useSearchParams, useSearchHistory, useInput } from "@hooks";
+import { Input } from "components/commons";
+import { useSearchParams, useSearchHistory, useInput } from "hooks";
 import styles from "./InputForm.module.css";
 
 function InputForm() {

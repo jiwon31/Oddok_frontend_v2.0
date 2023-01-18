@@ -1,10 +1,10 @@
 import React from "react";
 import { useRecoilState, useSetRecoilState } from "recoil";
-import { userState } from "@recoil/user-state";
-import { errorState } from "@recoil/error-state";
-import { login } from "@api/auth/auth-api";
-import { Loading } from "@components/commons";
-import { useAsync } from "@hooks";
+import { userState } from "recoil/user-state";
+import { errorState } from "recoil/error-state";
+import { login } from "api/auth/auth-api";
+import { Loading } from "components/commons";
+import { useAsync } from "hooks";
 
 function RedirectPage() {
   const authCode = new URL(window.location.href).searchParams.get("code"); // 파라미터로 넘어온 인가코드를 가져옴

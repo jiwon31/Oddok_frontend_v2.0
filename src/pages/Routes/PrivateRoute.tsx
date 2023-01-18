@@ -1,4 +1,4 @@
-import { userState } from "@recoil/user-state";
+import { userState } from "recoil/user-state";
 import { Navigate } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 

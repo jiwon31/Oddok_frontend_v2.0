@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
-import { Modal, Input } from "@components/commons";
-import { checkPassword } from "@api/study-room-api";
-import { useGoToPage, useInput } from "@hooks";
+import { Modal, Input } from "components/commons";
+import { checkPassword } from "api/study-room-api";
+import { useGoToPage, useInput } from "hooks";
 import styles from "./PasswordModal.module.css";
 
 function PasswordModal({ roomId, onClose }) {

@@ -1,5 +1,5 @@
 import React from "react";
-import { useSearchHistory } from "@hooks";
+import { useSearchHistory } from "hooks";
 import styles from "./SearchHistory.module.css";
 
 function SearchHistory({ searchTitle }) {

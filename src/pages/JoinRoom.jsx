@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useRecoilState, useSetRecoilState } from "recoil";
-import { userState } from "@recoil/user-state";
-import { roomInfoState } from "@recoil/studyroom-state";
-import { errorState } from "@recoil/error-state";
-import { getStudyRoom, joinStudyRoom } from "@api/study-room-api";
-import { Loading } from "@components/commons";
-import { SettingRoom } from "@components/study";
-import { useGoToPage, useAsync } from "@hooks";
+import { userState } from "recoil/user-state";
+import { roomInfoState } from "recoil/studyroom-state";
+import { errorState } from "recoil/error-state";
+import { getStudyRoom, joinStudyRoom } from "api/study-room-api";
+import { Loading } from "components/commons";
+import { SettingRoom } from "components/study";
+import { useGoToPage, useAsync } from "hooks";
 
 function JoinRoom() {
   const { roomId } = useParams();

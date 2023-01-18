@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Share } from "@icons";
+import { Share } from "assets/icons";
 import styles from "./ShareButton.module.css";
 
 function ShareButton() {

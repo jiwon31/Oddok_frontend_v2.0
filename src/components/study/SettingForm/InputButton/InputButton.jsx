@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/no-autofocus */
-import React, { useRef, useState, useEffect, forwardRef } from "react";
-import { Hashtag, Cancel } from "@icons";
+import React, { useRef, useState, useEffect } from "react";
+import { Hashtag, Cancel } from "assets/icons";
 import styles from "./InputButton.module.css";
 
 function InputButton({ onSubmit, onDelete }) {

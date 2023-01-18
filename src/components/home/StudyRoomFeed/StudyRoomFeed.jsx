@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { getStudyRoomList } from "@api/study-room-api";
-import { Dropdown } from "@components/commons";
-import { TabMenu, FeedGrid } from "@components/home";
-import { ArrowDown } from "@icons";
-import { useSearchParams } from "@hooks";
-import { STUDY_FILTER_OPTIONS, STUDY_SORT_OPTIONS } from "@utils/constants/options";
+import { getStudyRoomList } from "api/study-room-api";
+import { Dropdown } from "components/commons";
+import { TabMenu, FeedGrid } from "components/home";
+import { ArrowDown } from "assets/icons";
+import { useSearchParams } from "hooks";
+import { STUDY_FILTER_OPTIONS, STUDY_SORT_OPTIONS } from "utils/constants/options";
 import styles from "./StudyRoomFeed.module.css";
 
 function StudyRoomList({ tagFilter }) {

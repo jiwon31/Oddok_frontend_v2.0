@@ -1,10 +1,10 @@
 import React, { useRef } from "react";
 import { useRecoilState, useResetRecoilState } from "recoil";
-import { planState, selectedPlanState } from "@recoil/plan-state";
-import { hourState, minuteState, secondState } from "@recoil/timer-state";
-import { Input } from "@components/commons";
-import { useInput } from "@hooks";
-import { SendButton } from "@icons";
+import { planState, selectedPlanState } from "recoil/plan-state";
+import { hourState, minuteState, secondState } from "recoil/timer-state";
+import { Input } from "components/commons";
+import { useInput } from "hooks";
+import { SendButton } from "assets/icons";
 import Plans from "../Plans/Plans";
 import styles from "./PlanSidebar.module.css";
 

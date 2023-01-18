@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
-import { RadioButton } from "@components/commons";
-import { CATEGORY_OPTIONS } from "@utils/constants/options";
+import { RadioButton } from "components/commons";
+import { CATEGORY_OPTIONS } from "utils/constants/options";
 import styles from "./CategoryForm.module.css";
 
 function CategoryForm({ category, setCategory }) {

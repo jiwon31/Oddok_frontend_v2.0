@@ -1,7 +1,7 @@
 import axios from "axios";
-import axiosInstance from "@api/axios-config";
-import StudyRoomError from "@api/error/StudyRoomError";
-import { STUDY_MESSAGE } from "@utils/constants/API_ERROR";
+import axiosInstance from "api/axios-config";
+import StudyRoomError from "api/error/StudyRoomError";
+import { STUDY_MESSAGE } from "utils/constants/API_ERROR";
 
 export const createStudyRoom = async (roomInfo) => {
   try {

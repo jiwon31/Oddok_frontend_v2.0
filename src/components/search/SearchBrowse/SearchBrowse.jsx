@@ -1,5 +1,5 @@
 import React from "react";
-import { useSearchParams } from "@hooks";
+import { useSearchParams } from "hooks";
 import { HashtagList, SearchHistory } from "..";
 import styles from "./SearchBrowse.module.css";
 

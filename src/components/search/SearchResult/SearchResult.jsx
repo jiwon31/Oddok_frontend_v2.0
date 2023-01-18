@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { StudyRoomFeed } from "@components/home";
-import { useSearchParams } from "@hooks";
+import { StudyRoomFeed } from "components/home";
+import { useSearchParams } from "hooks";
 import { HashtagList } from "..";
 import styles from "./SearchResult.module.css";
 

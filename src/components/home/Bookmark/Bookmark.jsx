@@ -1,8 +1,8 @@
 /* eslint-disable no-restricted-syntax */
 import React, { useEffect, useState } from "react";
-import { PasswordModal, UserCount } from "@components/commons";
-import { Thumbnail } from "@icons";
-import { useModal, useGoToPage } from "@hooks";
+import { PasswordModal, UserCount } from "components/commons";
+import { Thumbnail } from "assets/icons";
+import { useModal, useGoToPage } from "hooks";
 import styles from "./Bookmark.module.css";
 
 const initialUsers = [

@@ -1,7 +1,7 @@
 import React from "react";
 import { useRecoilValue } from "recoil";
-import { roomInfoState } from "@recoil/studyroom-state";
-import { Setting, Music, VideoOn, VideoOff, MicOn, MicOff, Chat, Member, Door } from "@icons";
+import { roomInfoState } from "recoil/studyroom-state";
+import { Setting, Music, VideoOn, VideoOff, MicOn, MicOff, Chat, Member, Door } from "assets/icons";
 import SubjectTime from "../SubjectTime/SubjectTime";
 import styles from "./StudyBar.module.css";
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { Hashtag, Cancel } from "@icons";
+import { Hashtag, Cancel } from "assets/icons";
 import styles from "./HashtagButton.module.css";
 
 function HashtagButton({ label, onToggle, onDelete, checked }) {

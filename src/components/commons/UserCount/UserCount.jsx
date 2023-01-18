@@ -1,5 +1,5 @@
 import React from "react";
-import { Plus, Person } from "@icons";
+import { Plus, Person } from "assets/icons";
 import styles from "./UserCount.module.css";
 
 function UserCount({ number }) {

@@ -1,7 +1,7 @@
 import React from "react";
 import { useRecoilState } from "recoil";
-import { errorState } from "@recoil/error-state";
-import { Modal } from "@components/commons";
+import { errorState } from "recoil/error-state";
+import { Modal } from "components/commons";
 import { useNavigate } from "react-router-dom";
 
 function ErrorModal() {

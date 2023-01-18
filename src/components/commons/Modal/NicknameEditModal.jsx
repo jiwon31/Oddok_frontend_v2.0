@@ -1,9 +1,9 @@
 import React, { useState, useRef } from "react";
-import { Modal, Input } from "@components/commons";
-import { editNickname } from "@api/user-api";
+import { Modal, Input } from "components/commons";
+import { editNickname } from "api/user-api";
 import { useRecoilState } from "recoil";
-import { userState } from "@recoil/user-state";
-import { useInput } from "@hooks";
+import { userState } from "recoil/user-state";
+import { useInput } from "hooks";
 import styles from "./NicknameEditModal.module.css";
 
 function NicknameEditModal({ onClose }) {

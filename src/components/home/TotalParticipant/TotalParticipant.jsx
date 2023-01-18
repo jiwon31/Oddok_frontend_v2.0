@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useGoToPage } from "@hooks";
-import { UserCount } from "@components/commons";
-import { getTotalParticipant } from "@api/participant-api";
+import { useGoToPage } from "hooks";
+import { UserCount } from "components/commons";
+import { getTotalParticipant } from "api/participant-api";
 import styles from "./TotalParticipant.module.css";
 
 function TotalParticipant() {

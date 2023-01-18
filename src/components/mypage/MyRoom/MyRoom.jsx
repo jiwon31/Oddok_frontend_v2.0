@@ -1,7 +1,7 @@
 import React from "react";
-import { useAsync, useModal } from "@hooks";
-import { getMyRoom } from "@api/mypage-api";
-import { Room, EditButton, MyRoomEditModal } from "@components/mypage";
+import { useAsync, useModal } from "hooks";
+import { getMyRoom } from "api/mypage-api";
+import { Room, EditButton, MyRoomEditModal } from "components/mypage";
 import styles from "./MyRoom.module.css";
 
 function MyRoom() {

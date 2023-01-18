@@ -1,9 +1,9 @@
 import React from "react";
-import { useAsync, useModal } from "@hooks";
-import { getProfile } from "@api/mypage-api";
-import { getDday, dateParsing } from "@utils";
-import { Textarea } from "@components/commons";
-import { MyGoalEditModal, EditButton } from "@components/mypage";
+import { useAsync, useModal } from "hooks";
+import { getProfile } from "api/mypage-api";
+import { getDday, dateParsing } from "utils";
+import { Textarea } from "components/commons";
+import { MyGoalEditModal, EditButton } from "components/mypage";
 import styles from "./MyGoal.module.css";
 
 function MyGoal() {

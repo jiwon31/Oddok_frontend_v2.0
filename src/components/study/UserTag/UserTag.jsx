@@ -1,5 +1,5 @@
 import React from "react";
-import { Award, MicOn, MicOff } from "@icons";
+import { Award, MicOn, MicOff } from "assets/icons";
 import styles from "./UserTag.module.css";
 
 function UserTag({ isHost, audioActive, nickname }) {

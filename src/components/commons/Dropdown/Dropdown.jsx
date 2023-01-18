@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
-import { ArrowDown } from "@icons";
-import useOutSideClick from "@hooks/useOutSideClick";
+import { ArrowDown } from "assets/icons";
+import useOutSideClick from "hooks/useOutSideClick";
 import styles from "./Dropdown.module.css";
 
 function Dropdown({ options, onSelect, defaultValue }) {

@@ -1,11 +1,11 @@
 import React, { useLayoutEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { useRecoilState, useSetRecoilState, useResetRecoilState } from "recoil";
-import { userState } from "@recoil/user-state";
-import { roomInfoState, deviceState } from "@recoil/studyroom-state";
-import { planState, selectedPlanState } from "@recoil/plan-state";
-import { SettingBar, SettingForm, SettingSideBar, PlanSidebar, UserVideo } from "@components/study";
-import { useToggleSideBar, useMyStream } from "@hooks";
+import { userState } from "recoil/user-state";
+import { roomInfoState, deviceState } from "recoil/studyroom-state";
+import { planState, selectedPlanState } from "recoil/plan-state";
+import { SettingBar, SettingForm, SettingSideBar, PlanSidebar, UserVideo } from "components/study";
+import { useToggleSideBar, useMyStream } from "hooks";
 import styles from "./SettingRoom.module.css";
 
 function SettingRoom({ goToStudyRoom }) {

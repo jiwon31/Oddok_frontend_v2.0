@@ -1,9 +1,9 @@
 import React from "react";
 import { useRecoilValue } from "recoil";
-import { roomInfoState } from "@recoil/studyroom-state";
-import { planState, selectedPlanState } from "@recoil/plan-state";
-import { ToolTip } from "@components/commons";
-import { Setting, Music, VideoOn, VideoOff, MicOn, MicOff, GoalOpen } from "@icons";
+import { roomInfoState } from "recoil/studyroom-state";
+import { planState, selectedPlanState } from "recoil/plan-state";
+import { ToolTip } from "components/commons";
+import { Setting, Music, VideoOn, VideoOff, MicOn, MicOff, GoalOpen } from "assets/icons";
 import styles from "./SettingBar.module.css";
 
 function SettingBar({ goToStudyRoom, toggleVideo, toggleAudio, clickSideBarBtn, videoActive, audioActive }) {

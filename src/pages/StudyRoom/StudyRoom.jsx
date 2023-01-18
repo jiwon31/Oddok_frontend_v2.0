@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useRecoilState, useSetRecoilState, useResetRecoilState } from "recoil";
-import { roomInfoState, deviceState } from "@recoil/studyroom-state";
-import { errorState } from "@recoil/error-state";
-import { planState, selectedPlanState } from "@recoil/plan-state";
+import { roomInfoState, deviceState } from "recoil/studyroom-state";
+import { errorState } from "recoil/error-state";
+import { planState, selectedPlanState } from "recoil/plan-state";
 import {
   hourState,
   minuteState,
@@ -12,13 +12,12 @@ import {
   totalMinuteState,
   totalSecondState,
   studyTimeState,
-} from "@recoil/timer-state";
-import { leaveStudyRoom } from "@api/study-room-api";
-import { initSession, connectToSession, connectDevice, initPublisher } from "@api/openvidu-api";
-import { StudyBar, UserVideo, SettingSideBar, ChatSideBar, PlanSidebar, ParticipantSideBar } from "@components/study";
-import { Modal } from "@components/commons";
-import { useToggleSideBar, useManageLocalUser, useManageRemoteUsers } from "@hooks";
-import useModal from "@hooks/useModal";
+} from "recoil/timer-state";
+import { leaveStudyRoom } from "api/study-room-api";
+import { initSession, connectToSession, connectDevice, initPublisher } from "api/openvidu-api";
+import { StudyBar, UserVideo, SettingSideBar, ChatSideBar, PlanSidebar, ParticipantSideBar } from "components/study";
+import { Modal } from "components/commons";
+import { useToggleSideBar, useManageLocalUser, useManageRemoteUsers, useModal } from "hooks";
 import styles from "./StudyRoom.module.css";
 
 function StudyRoom() {

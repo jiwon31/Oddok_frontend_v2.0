@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { createPortal } from "react-dom";
-import { Close } from "@icons";
-import useOutSideClick from "@hooks/useOutSideClick";
+import { Close } from "assets/icons";
+import useOutSideClick from "hooks/useOutSideClick";
 import styles from "./Modal.module.css";
 
 function Modal({ title, content, onClose, onAction, onSubAction, disabled }) {

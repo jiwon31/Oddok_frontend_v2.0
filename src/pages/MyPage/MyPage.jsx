@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react";
-import { SideNavBar, MyGoal, StudyTime, MyRoom, MyAccount } from "@components/mypage";
+import { SideNavBar, MyGoal, StudyTime, MyRoom, MyAccount } from "components/mypage";
 import styles from "./MyPage.module.css";
 
 function MyPage() {

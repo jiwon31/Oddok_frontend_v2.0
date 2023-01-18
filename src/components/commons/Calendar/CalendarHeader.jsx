@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrowLeft, ArrowRight } from "@icons";
+import { ArrowLeft, ArrowRight } from "assets/icons";
 import styles from "./CalendarHeader.module.css";
 
 function CalendarHeader({ date, decreaseMonth, increaseMonth, prevMonthButtonDisabled, nextMonthButtonDisabled }) {

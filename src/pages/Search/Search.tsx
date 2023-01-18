@@ -1,4 +1,4 @@
-import { InputForm, SearchBrowse } from "@components/search";
+import { InputForm, SearchBrowse } from "components/search";
 
 function Search() {
   return (

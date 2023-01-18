@@ -1,5 +1,5 @@
 import React from "react";
-import { Award, MicOn, MicOff } from "@icons";
+import { Award, MicOn, MicOff } from "assets/icons";
 import styles from "./ParticipantSideBar.module.css";
 
 function ParticipantSideBar({ participants }) {

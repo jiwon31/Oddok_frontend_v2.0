@@ -1,5 +1,5 @@
 import React from "react";
-import { Thumbnail } from "@icons";
+import { Thumbnail } from "assets/icons";
 import styles from "./Room.module.css";
 
 function Room({ roomData }) {

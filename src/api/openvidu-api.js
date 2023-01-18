@@ -1,7 +1,7 @@
 import { OpenVidu } from "openvidu-browser";
-import OpenviduError from "@api/error/OpenviduError";
-import { OPENVIDU_MESSAGE } from "@utils/constants/API_ERROR";
-import { leaveStudyRoom } from "@api/study-room-api";
+import OpenviduError from "api/error/OpenviduError";
+import { OPENVIDU_MESSAGE } from "utils/constants/API_ERROR";
+import { leaveStudyRoom } from "api/study-room-api";
 
 const OV = new OpenVidu();
 

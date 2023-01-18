@@ -1,5 +1,5 @@
 import React from "react";
-import { Cancel } from "@icons";
+import { Cancel } from "assets/icons";
 import styles from "./CloseButton.module.css";
 
 function CloseButton({ onClose }) {

@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
-import { Dots, Circle, CheckedCircle } from "@icons";
-import { Input } from "@components/commons";
-import { useOutSideClick, useInput } from "@hooks";
+import { Dots, Circle, CheckedCircle } from "assets/icons";
+import { Input } from "components/commons";
+import { useOutSideClick, useInput } from "hooks";
 import styles from "./Plan.module.css";
 
 function Plan({ plan, onPlanClick, onDelete, onEdit }) {
