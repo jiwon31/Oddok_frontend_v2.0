@@ -1,26 +1,22 @@
 .footer {
-  margin-top: auto;
+  width: 100%;
   background-color: black;
   color: var(--gray300);
+  padding: 1.5em 1rem;
 }
 
 .info {
-  width: 75%;
-  max-width: 1320px;
-  margin: 0 auto;
   display: flex;
   justify-content: space-between;
-  padding: 1.5em 0;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 7rem;
 }
 
 .title {
+  flex-basis: 50%;
   display: flex;
   align-items: center;
-  padding: 0 1em;
-}
-
-.detail {
-  display: flex;
 }
 
 .logo {
@@ -34,12 +30,6 @@
   font-weight: 500;
 }
 
-.contact,
-.team {
-  padding: 1em;
-  margin: 0 2em;
-}
-
 .contents,
 .content {
   margin: 0;
@@ -51,7 +41,11 @@
 }
 
 .copyright {
-  padding-top: 2em;
-  padding-bottom: 3.5em;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
   text-align: center;
+}
+
+.copyright > p {
+  margin: 0;
 }

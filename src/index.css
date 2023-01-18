@@ -11,6 +11,10 @@ body {
   color: white;
 }
 
+#root {
+  width: 100%;
+}
+
 button {
   outline: none;
   border: 0;
@@ -34,4 +38,8 @@ ul {
   border-radius: 100px;
   background-color: rgba(52, 58, 64, 0.5);
   background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--gray800);
 }

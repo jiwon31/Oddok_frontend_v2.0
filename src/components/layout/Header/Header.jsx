@@ -6,8 +6,8 @@ import { getUserInfo } from "@api/user-api";
 import { NicknameEditModal } from "@components/commons";
 import { KAKAO_LOGOUT_URL } from "@api/auth/kakao";
 import { useModal, useGoToPage, useOutSideClick } from "@hooks";
-import styles from "./Header.module.css";
 import { useLocation } from "react-router-dom";
+import styles from "./Header.module.css";
 
 function Header() {
   const { pathname } = useLocation();
