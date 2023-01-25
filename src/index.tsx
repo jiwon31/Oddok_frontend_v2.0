@@ -18,7 +18,12 @@ import ShareStudyTime from "pages/ShareStudyTime/ShareStudyTime";
 import PublicRoute from "pages/Routes/PublicRoute";
 import PrivateRoute from "pages/Routes/PrivateRoute";
 import Layout from "components/layout/Layout";
+// import axios from "axios";
 import App from "./App";
+
+// axios.defaults.withCredentials = true;
+// axios.defaults.timeout = 30000;
+// axios.defaults.headers.common["Content-Type"] = "application/json";
 
 const router = createBrowserRouter([
   {
