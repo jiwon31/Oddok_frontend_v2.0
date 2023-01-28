@@ -1,11 +1,10 @@
 import axios from "axios";
-import axiosInstance from "api/axios-config";
 import StudyRoomError from "api/error/StudyRoomError";
 import { STUDY_MESSAGE } from "utils/constants/API_ERROR";
 
 export const createStudyRoom = async (roomInfo) => {
   try {
-    const response = await axiosInstance({
+    const response = await axios({
       url: "/study-room",
       method: "POST",
       data: roomInfo,
@@ -18,7 +17,7 @@ export const createStudyRoom = async (roomInfo) => {
 
 export const joinStudyRoom = async (roomId) => {
   try {
-    const response = await axiosInstance({
+    const response = await axios({
       url: `/study-room/join/${roomId}`,
     });
     return response;
@@ -35,7 +34,7 @@ export const startStudyRoom = async (roomInfo) => {
 
 export const updateStudyRoom = async (roomId, newRoomInfo) => {
   try {
-    const response = await axiosInstance({
+    const response = await axios({
       url: `/study-room/${roomId}`,
       method: "PUT",
       data: newRoomInfo,
@@ -48,7 +47,7 @@ export const updateStudyRoom = async (roomId, newRoomInfo) => {
 
 export const leaveStudyRoom = async (roomId) => {
   try {
-    const response = await axiosInstance({
+    const response = await axios({
       url: `/study-room/leave/${roomId}`,
     });
     return response;
@@ -58,7 +57,7 @@ export const leaveStudyRoom = async (roomId) => {
 };
 
 export const getStudyRoom = async (roomId) => {
-  const response = await axiosInstance({
+  const response = await axios({
     url: `/study-room/${roomId}`,
   });
   return response;
@@ -79,7 +78,7 @@ export const getStudyRoomList = async (searchParams, page) => {
 };
 
 export const checkPassword = async (roomId, password) => {
-  const response = await axiosInstance.post(`/study-room/check/${roomId}`, {
+  const response = await axios.post(`/study-room/check/${roomId}`, {
     password,
   });
   return response;

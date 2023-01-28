@@ -23,7 +23,7 @@ function MyAccount() {
         <div className={styles.contents}>
           <div>
             <div className={styles.sub_heading}>닉네임</div>
-            <div className={styles.nickname}>{user.nickname}</div>
+            <div className={styles.nickname}>{user?.nickname || ""}</div>
           </div>
           <div>
             <div className={styles.sub_heading}>위험구역</div>

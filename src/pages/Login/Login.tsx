@@ -1,4 +1,3 @@
-import React from "react";
 import { KAKAO_AUTH_URL } from "api/auth/kakao";
 import styles from "./Login.module.css";
 

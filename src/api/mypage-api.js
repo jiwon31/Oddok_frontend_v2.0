@@ -1,49 +1,49 @@
-import axiosInstance from "./axios-config";
+import axios from "axios";
 
 export const getProfile = async () => {
-  const response = await axiosInstance({
+  const response = await axios({
     url: "/profile",
   });
-  return response;
+  return response.data;
 };
 
 export const getTimeRecordList = async (date) => {
-  const response = await axiosInstance({
+  const response = await axios({
     url: "/time-record",
     params: { date },
   });
-  return response;
+  return response.data;
 };
 
 export const getMyRoom = async () => {
-  const response = await axiosInstance({
+  const response = await axios({
     url: "/user/my-study-room",
   });
-  return response;
+  return response.data;
 };
 
 export const createProfile = async (data) => {
-  const response = await axiosInstance({
+  const response = await axios({
     url: "/profile",
     method: "POST",
     data,
   });
-  return response;
+  return response.data;
 };
 
 export const updateProfile = async (data) => {
-  const response = await axiosInstance({
+  const response = await axios({
     url: "/profile",
     method: "PUT",
     data,
   });
-  return response;
+  return response.data;
 };
 
 export const deleteStudyRoom = async (roomId) => {
-  const response = await axiosInstance({
+  const response = await axios({
     url: `/study-room/${roomId}`,
     method: "DELETE",
   });
-  return response;
+  return response.data;
 };

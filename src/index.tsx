@@ -18,12 +18,8 @@ import ShareStudyTime from "pages/ShareStudyTime/ShareStudyTime";
 import PublicRoute from "pages/Routes/PublicRoute";
 import PrivateRoute from "pages/Routes/PrivateRoute";
 import Layout from "components/layout/Layout";
-// import axios from "axios";
+import { RecoilRoot } from "recoil";
 import App from "./App";
-
-// axios.defaults.withCredentials = true;
-// axios.defaults.timeout = 30000;
-// axios.defaults.headers.common["Content-Type"] = "application/json";
 
 const router = createBrowserRouter([
   {
@@ -110,6 +106,8 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <RecoilRoot>
+      <RouterProvider router={router} />
+    </RecoilRoot>
   </React.StrictMode>,
 );

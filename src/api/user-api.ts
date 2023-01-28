@@ -1,18 +1,19 @@
-import { axiosInstance } from "./axios-config";
+import axios from "axios";
+import { User } from "types/user";
 
-export class UserApi {
-  async getUserInfo() {
-    const response = await axiosInstance.get("/user/info");
-    return response;
+export default class UserApi {
+  async getUserInfo(): Promise<User> {
+    const response = await axios.get("/user/info");
+    return response.data;
   }
 
   async getNickname() {
-    const response = await axiosInstance.get("/user/nickname");
-    return response;
+    const response = await axios.get("/user/nickname");
+    return response.data;
   }
 
   async editNickname(nickname: string) {
-    const response = axiosInstance.patch("/user/nickname", {
+    const response = axios.patch("/user/nickname", {
       nickname,
     });
     return response;

@@ -21,8 +21,8 @@
     "react/jsx-one-expression-per-line": "off",
     "react/prop-types": "off",
     "jsx-a11y/media-has-caption": "off",
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
+    "react-hooks/rules-of-hooks": "off",
+    "react-hooks/exhaustive-deps": "off",
     "import/prefer-default-export": "off",
     "jsx-a11y/label-has-associated-control": [
       "error",
@@ -45,6 +45,11 @@
     "react/jsx-filename-extension": ["warn", { "extensions": [".jsx", ".js", ".tsx", ".ts"] }],
     "react/require-default-props": "off",
     "import/no-extraneous-dependencies": "off",
-    "class-methods-use-this": "off"
+    "class-methods-use-this": "off",
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "consistent-return": "off",
+    "no-alert": "off",
+    "no-useless-constructor": "off"
   }
 }

@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { Search } from "assets/icons";
-import UserInfo from "../UserInfo/UserInfo";
+// import UserInfo from "../UserInfo/UserInfo";
 import styles from "./Header.module.css";
 
 function Header() {
@@ -23,7 +23,7 @@ function Header() {
         <Link to="/search" className={styles.search}>
           <Search />
         </Link>
-        <UserInfo />
+        {/* <UserInfo /> */}
         <Link to="/studyroom/create" className={styles.button}>
           + 새 스터디 만들기
         </Link>

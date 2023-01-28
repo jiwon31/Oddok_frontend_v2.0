@@ -10,7 +10,7 @@ type PublicRouteProps = {
 function PublicRoute({ children, restricted }: PublicRouteProps) {
   const user = useRecoilValue(userState);
 
-  if (user.isLogin && restricted) {
+  if (user && restricted) {
     return <Navigate to="/" replace />;
   }
   return children;

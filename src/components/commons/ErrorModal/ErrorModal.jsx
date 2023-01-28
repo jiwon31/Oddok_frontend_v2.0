@@ -8,12 +8,8 @@ function ErrorModal() {
   const navigate = useNavigate();
   const [error, setError] = useRecoilState(errorState);
 
-  const handleClose = () => {
-    setError(null);
-  };
-
-  const redirect = (path) => {
-    setError(null);
+  const redirect = (path = "/") => {
+    setError(undefined);
     navigate(path);
   };
 
@@ -22,10 +18,10 @@ function ErrorModal() {
       <Modal
         title="⚠️"
         content={error.userMessage ?? error.message}
-        onClose={handleClose}
+        onClose={() => setError(undefined)}
         onAction={{
-          text: error.action?.text ?? "메인으로 이동하기",
-          action: () => redirect(error.action?.path ?? "/"),
+          text: error.action?.text ?? "홈으로 이동하기",
+          action: () => redirect(error.action?.path),
         }}
       />
     )
