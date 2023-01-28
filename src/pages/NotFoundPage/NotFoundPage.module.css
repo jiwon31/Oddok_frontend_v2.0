@@ -7,9 +7,15 @@
   color: white;
 }
 
-.container button {
-  background-color: gray;
+.button {
   padding: 0.8rem 1rem;
-  margin: 1rem;
   border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--gray950);
+  background-color: var(--primary);
+}
+
+.button:hover {
+  filter: brightness(1.1);
 }
