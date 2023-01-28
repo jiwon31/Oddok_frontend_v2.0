@@ -3,8 +3,8 @@ import styles from "./ErrorPage.module.css";
 function ErrorPage() {
   return (
     <div className={styles.container}>
-      <p className={styles.title}>알 수 없는 에러 발생😵</p>
-      <button type="button" onClick={() => window.location.reload()}>
+      <h2 className={styles.title}>알 수 없는 에러가 발생하였습니다.</h2>
+      <button className={styles.button} type="button" onClick={() => window.location.reload()}>
         새로고침
       </button>
     </div>
