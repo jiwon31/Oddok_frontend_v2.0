@@ -25,5 +25,5 @@
     "noUncheckedIndexedAccess": true,
     "types": ["jest", "node"]
   },
-  "include": ["src", "**/*.{ts,tsx}"]
+  "include": ["src", "**/*.{ts,tsx}", "src/setupTests.ts"]
 }
