@@ -1,13 +1,12 @@
 import { Link, useLocation } from "react-router-dom";
 import { Search } from "assets/icons";
-import { useRecoilValue } from "recoil";
-import { userState } from "recoil/user-state";
+import useRecoilUser from "hooks/useRecoilUser";
 import UserInfo from "../UserInfo/UserInfo";
 import styles from "./Header.module.css";
 
 function Header() {
   const { pathname } = useLocation();
-  const user = useRecoilValue(userState);
+  const { user } = useRecoilUser();
 
   return (
     <header className={styles.header}>

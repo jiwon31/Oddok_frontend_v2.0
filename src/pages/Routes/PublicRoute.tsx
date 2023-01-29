@@ -1,19 +1,16 @@
-import { userState } from "recoil/user-state";
 import { Navigate } from "react-router-dom";
-import { useRecoilValue } from "recoil";
+import useRecoilUser from "hooks/useRecoilUser";
 
 type PublicRouteProps = {
   children: JSX.Element;
   restricted: boolean;
 };
 
-function PublicRoute({ children, restricted }: PublicRouteProps) {
-  const user = useRecoilValue(userState);
+export default function PublicRoute({ children, restricted }: PublicRouteProps) {
+  const { user } = useRecoilUser();
 
   if (user && restricted) {
     return <Navigate to="/" replace />;
   }
   return children;
 }
-
-export default PublicRoute;

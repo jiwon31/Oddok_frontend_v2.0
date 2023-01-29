@@ -1,10 +1,9 @@
-import { userState } from "recoil/user-state";
 import { Navigate } from "react-router-dom";
-import { useRecoilValue } from "recoil";
+import useRecoilUser from "hooks/useRecoilUser";
 import Cookies from "js-cookie";
 
-function PrivateRoute({ children }: { children: JSX.Element }) {
-  const user = useRecoilValue(userState);
+export default function PrivateRoute({ children }: { children: JSX.Element }) {
+  const { user } = useRecoilUser();
   const loggedIn = Cookies.get("logged_in");
 
   if (!user && !loggedIn) {
@@ -12,5 +11,3 @@ function PrivateRoute({ children }: { children: JSX.Element }) {
   }
   return children;
 }
-
-export default PrivateRoute;

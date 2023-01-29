@@ -1,14 +1,14 @@
 import { useRef, useState } from "react";
-import { useRecoilValue } from "recoil";
-import { userState } from "recoil/user-state";
 import { NicknameEditModal } from "components/commons";
 import { KAKAO_LOGOUT_URL } from "api/auth/kakao";
 import { useModal, useOutSideClick } from "hooks";
 import { Profile } from "assets/icons";
+import useRecoilUser from "hooks/useRecoilUser";
+
 import styles from "./UserInfo.module.css";
 
 export default function UserInfo() {
-  const user = useRecoilValue(userState)!;
+  const { user } = useRecoilUser();
   const [isDropdown, setIsDropdown] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const { isModal, openModal, closeModal } = useModal();
@@ -27,7 +27,7 @@ export default function UserInfo() {
       <div className={styles.user_info} ref={dropdownRef}>
         <button type="button" className={styles.profile} onClick={handleProfileClick}>
           <Profile />
-          <span className={styles.nickname}>{user.nickname}</span>
+          <span className={styles.nickname}>{user?.nickname ?? ""}</span>
         </button>
         {isDropdown && (
           <ul className={styles.info_buttons}>
