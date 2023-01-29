@@ -1,10 +1,13 @@
 import { Link, useLocation } from "react-router-dom";
 import { Search } from "assets/icons";
-// import UserInfo from "../UserInfo/UserInfo";
+import { useRecoilValue } from "recoil";
+import { userState } from "recoil/user-state";
+import UserInfo from "../UserInfo/UserInfo";
 import styles from "./Header.module.css";
 
 function Header() {
   const { pathname } = useLocation();
+  const user = useRecoilValue(userState);
 
   return (
     <header className={styles.header}>
@@ -23,7 +26,7 @@ function Header() {
         <Link to="/search" className={styles.search}>
           <Search />
         </Link>
-        {/* <UserInfo /> */}
+        {user && <UserInfo />}
         <Link to="/studyroom/create" className={styles.button}>
           + 새 스터디 만들기
         </Link>
