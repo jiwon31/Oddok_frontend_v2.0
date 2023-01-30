@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserInfo renders 1`] = `
+<div
+  className="user_info"
+>
+  <button
+    className="profile"
+    onClick={[Function]}
+    type="button"
+  >
+    <svg>
+      person-circle.svg
+    </svg>
+    <span
+      className="nickname"
+    >
+      user
+    </span>
+  </button>
+</div>
+`;
