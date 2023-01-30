@@ -1,6 +1,7 @@
 import { act, renderHook } from "@testing-library/react";
 import useRecoilUser from "hooks/useRecoilUser";
 import { RecoilRoot } from "recoil";
+import { fakeUser } from "tests/user";
 
 describe("useRecoilUser", () => {
   it("default value of user is null", () => {
@@ -12,7 +13,6 @@ describe("useRecoilUser", () => {
   });
 
   it("should set user state", () => {
-    const fakeUser = { id: 1, nickname: "user", email: "email@gmail.com" };
     const { result } = render();
 
     act(() => result.current.setUser(fakeUser));
