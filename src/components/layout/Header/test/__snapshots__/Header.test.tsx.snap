@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header renders when a user is logged in 1`] = `
+<header
+  className="header"
+>
+  <a
+    className="logo"
+    href="/"
+    onClick={[Function]}
+  >
+    ODDOK
+  </a>
+  <div
+    className="pages"
+  >
+    <a
+      className="page clicked"
+      href="/"
+      onClick={[Function]}
+    >
+      스터디룸
+    </a>
+    <a
+      className="page false"
+      href="/mypage"
+      onClick={[Function]}
+    >
+      마이페이지
+    </a>
+  </div>
+  <nav
+    className="nav"
+  >
+    <a
+      className="search"
+      href="/search"
+      onClick={[Function]}
+    >
+      <svg>
+        search.svg
+      </svg>
+    </a>
+    <div
+      className="user_info"
+    >
+      <button
+        className="profile"
+        onClick={[Function]}
+        type="button"
+      >
+        <svg>
+          person-circle.svg
+        </svg>
+        <span
+          className="nickname"
+        >
+          user
+        </span>
+      </button>
+    </div>
+    <a
+      className="button"
+      href="/studyroom/create"
+      onClick={[Function]}
+    >
+      + 새 스터디 만들기
+    </a>
+  </nav>
+</header>
+`;
+
+exports[`Header renders when a user is not logged in 1`] = `
+<header
+  className="header"
+>
+  <a
+    className="logo"
+    href="/"
+    onClick={[Function]}
+  >
+    ODDOK
+  </a>
+  <div
+    className="pages"
+  >
+    <a
+      className="page clicked"
+      href="/"
+      onClick={[Function]}
+    >
+      스터디룸
+    </a>
+    <a
+      className="page false"
+      href="/mypage"
+      onClick={[Function]}
+    >
+      마이페이지
+    </a>
+  </div>
+  <nav
+    className="nav"
+  >
+    <a
+      className="search"
+      href="/search"
+      onClick={[Function]}
+    >
+      <svg>
+        search.svg
+      </svg>
+    </a>
+    <a
+      className="button"
+      href="/studyroom/create"
+      onClick={[Function]}
+    >
+      + 새 스터디 만들기
+    </a>
+  </nav>
+</header>
+`;
