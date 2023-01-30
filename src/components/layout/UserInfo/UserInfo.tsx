@@ -4,7 +4,6 @@ import { KAKAO_LOGOUT_URL } from "api/auth/kakao";
 import { useModal, useOutSideClick } from "hooks";
 import { Profile } from "assets/icons";
 import useRecoilUser from "hooks/useRecoilUser";
-
 import styles from "./UserInfo.module.css";
 
 export default function UserInfo() {
