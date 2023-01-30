@@ -24,6 +24,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --watch --transformIgnorePatterns \"node_modules/(?!axios)/\"",
+    "testAll": "react-scripts test --watchAll --transformIgnorePatterns \"node_modules/(?!axios)/\"",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

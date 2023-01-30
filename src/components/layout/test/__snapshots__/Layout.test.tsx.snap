@@ -1,0 +1,121 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Layout renders with children component 1`] = `
+<div
+  className="wrap"
+>
+  <header
+    className="header"
+  >
+    <a
+      className="logo"
+      href="/"
+      onClick={[Function]}
+    >
+      ODDOK
+    </a>
+    <div
+      className="pages"
+    >
+      <a
+        className="page clicked"
+        href="/"
+        onClick={[Function]}
+      >
+        스터디룸
+      </a>
+      <a
+        className="page false"
+        href="/mypage"
+        onClick={[Function]}
+      >
+        마이페이지
+      </a>
+    </div>
+    <nav
+      className="nav"
+    >
+      <a
+        className="search"
+        href="/search"
+        onClick={[Function]}
+      >
+        <svg>
+          search.svg
+        </svg>
+      </a>
+      <a
+        className="button"
+        href="/studyroom/create"
+        onClick={[Function]}
+      >
+        + 새 스터디 만들기
+      </a>
+    </nav>
+  </header>
+  <div
+    className="inner"
+  >
+    <p>
+      children
+    </p>
+  </div>
+  <footer
+    className="footer"
+  >
+    <div
+      className="info"
+    >
+      <div
+        className="title"
+      >
+        <h2
+          className="logo"
+        >
+          ODDOK
+        </h2>
+        <p
+          className="name"
+        >
+          실시간 화상 스터디 서비스
+        </p>
+      </div>
+      <div
+        className="contact"
+      >
+        <p
+          className="contents"
+        >
+          Contact
+        </p>
+        <p
+          className="content"
+        >
+          yejin013@naver.com
+        </p>
+      </div>
+      <div
+        className="team"
+      >
+        <p
+          className="contents"
+        >
+          Team
+        </p>
+        <p
+          className="content"
+        >
+          DOBBY @숭실대학교 소프트웨어학부
+        </p>
+      </div>
+    </div>
+    <div
+      className="copyright"
+    >
+      <p>
+        Copyright Dobby 2022, All Rights Reserved.
+      </p>
+    </div>
+  </footer>
+</div>
+`;
