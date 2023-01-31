@@ -11,11 +11,11 @@ export default class UserApi {
     const response = await axios.get("/user/nickname");
     return response.data;
   }
+}
 
-  async editNickname(nickname: string) {
-    const response = axios.patch("/user/nickname", {
-      nickname,
-    });
-    return response;
-  }
+export async function editNickname(nickname: string) {
+  const response = axios.patch("/user/nickname", {
+    nickname,
+  });
+  return response;
 }

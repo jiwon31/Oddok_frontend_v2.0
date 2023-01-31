@@ -54,8 +54,8 @@ export default class AuthApi {
   async logout(): Promise<void> {
     axios.get("/auth/logout");
   }
+}
 
-  async deleteAccount(): Promise<void> {
-    axios.get("/auth/leave");
-  }
+export async function deleteAccount(): Promise<void> {
+  axios.get("/auth/leave");
 }
