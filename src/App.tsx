@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Cookies from "js-cookie";
 import { useEffect } from "react";
 import AuthApi from "api/auth/auth-api";
@@ -11,8 +11,12 @@ function App({ authApi = new AuthApi(), userApi = new UserApi() }) {
   const queryClient = new QueryClient();
   const loggedIn = Cookies.get("logged_in");
   const { user, setUser } = useRecoilUser();
+  const { pathname } = useLocation();
 
   useEffect(() => {
+    if (pathname === "/logout/oauth2/code/kakao") {
+      return;
+    }
     if (loggedIn && !user) {
       authApi
         .getNewAccessToken() //
