@@ -1,7 +1,6 @@
 import { atom } from "recoil";
-import { ErrorState } from "types/api-result";
 
-export const errorState = atom<ErrorState | undefined>({
+export const errorState = atom<Error | undefined>({
   key: "errorState",
   default: undefined,
 });
