@@ -1,11 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap");
 
+html {
+  height: 100%;
+}
+
 * {
   box-sizing: border-box;
   font-family: "IBM Plex Sans KR", sans-serif;
 }
 
 body {
+  height: 100%;
   margin: 0;
   background-color: var(--gray950);
   color: white;
@@ -13,6 +18,7 @@ body {
 
 #root {
   width: 100%;
+  height: 100%;
 }
 
 button {

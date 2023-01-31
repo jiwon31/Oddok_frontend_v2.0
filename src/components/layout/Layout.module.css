@@ -1,6 +1,6 @@
 .wrap {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,6 +8,7 @@
 }
 
 .inner {
+  flex: 1 1 0;
   width: 100%;
   max-width: 1280px;
   padding-left: 1rem;
