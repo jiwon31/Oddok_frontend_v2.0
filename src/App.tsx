@@ -1,39 +1,9 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { Outlet, useLocation } from "react-router-dom";
-import Cookies from "js-cookie";
-import { useEffect } from "react";
-import AuthApi from "api/auth/auth-api";
-// import { ErrorModal } from "components/commons";
-import UserApi from "api/user-api";
-import useRecoilUser from "hooks/useRecoilUser";
+import { Outlet } from "react-router-dom";
+import useAuth from "hooks/useAuth";
 
-function App({ authApi = new AuthApi(), userApi = new UserApi() }) {
-  const queryClient = new QueryClient();
-  const loggedIn = Cookies.get("logged_in");
-  const { user, setUser } = useRecoilUser();
-  const { pathname } = useLocation();
+export default function App() {
+  const { refreshQuery } = useAuth();
+  refreshQuery();
 
-  useEffect(() => {
-    if (pathname === "/logout/oauth2/code/kakao") {
-      return;
-    }
-    if (loggedIn && !user) {
-      authApi
-        .getNewAccessToken() //
-        .then(async () => {
-          const userInfo = await userApi.getUserInfo();
-          setUser(userInfo);
-        })
-        .catch((e) => window.alert(e));
-    }
-  }, []);
-
-  return (
-    <QueryClientProvider client={queryClient}>
-      {/* <ErrorModal /> */}
-      <Outlet />
-    </QueryClientProvider>
-  );
+  return <Outlet />;
 }
-
-export default App;

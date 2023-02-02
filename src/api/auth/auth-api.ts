@@ -1,17 +1,22 @@
-import axios from "axios";
 import { kakaoConfig } from "api/auth/kakao";
+import { instance } from "api/axios-config";
+import UserApi from "api/user-api";
+import { User } from "types/user";
 
 export default class AuthApi {
+  constructor(private userApi: UserApi) {}
+
   static JWT_EXPIRY_TIME = 6 * 3600 * 1000; // JWT AccessToken 만료시간 (6시간)
 
-  async login(code: string): Promise<void> {
+  async login(code: string): Promise<User> {
     const token = await this.getKakaoToken(code);
     const accessToken = await this.getAuthToken(token);
-    this.onLoginSuccess(accessToken);
+    const user = await this.onLoginSuccess(accessToken);
+    return user;
   }
 
   private async getKakaoToken(code: string): Promise<string> {
-    const response = await axios.post(
+    const response = await instance.post(
       "https://kauth.kakao.com/oauth/token",
       this.formUrlEncoded({
         grant_type: "authorization_code",
@@ -30,8 +35,8 @@ export default class AuthApi {
   }
 
   private async getAuthToken(token: string): Promise<string> {
-    axios.defaults.withCredentials = true; // refreshToken을 쿠키로 받기 위해 설정
-    const response = await axios.get(`/auth?token=${token}`);
+    instance.defaults.withCredentials = true; // refreshToken을 쿠키로 받기 위해 설정
+    const response = await instance.get(`/auth?token=${token}`);
     return response.data.accessToken;
   }
 
@@ -39,23 +44,26 @@ export default class AuthApi {
     return Object.keys(x).reduce((p, c) => `${p}&${c}=${encodeURIComponent(x[c]!)}`, "");
   }
 
-  private onLoginSuccess(accessToken: string) {
-    axios.defaults.headers.common["Authorization"] = `Bearer ${accessToken}`;
+  private async onLoginSuccess(accessToken: string): Promise<User> {
+    instance.defaults.headers.common["Authorization"] = `Bearer ${accessToken}`;
     setTimeout(this.getNewAccessToken, AuthApi.JWT_EXPIRY_TIME - 60000); // 토큰 만료되기 1분 전에 새로운 토큰 발급 요청
+    const user = await this.userApi.getUserInfo();
+    return user;
   }
 
-  async getNewAccessToken(): Promise<void> {
-    const response = await axios.get("/auth/refresh", {
+  async getNewAccessToken(): Promise<User> {
+    const response = await instance.get("/auth/refresh", {
       withCredentials: true,
     });
-    this.onLoginSuccess(response.data.accessToken);
+    const user = await this.onLoginSuccess(response.data.accessToken);
+    return user;
   }
 
   async logout(): Promise<void> {
-    axios.get("/auth/logout");
+    return instance.get("/auth/logout");
   }
 }
 
 export async function deleteAccount(): Promise<void> {
-  axios.get("/auth/leave");
+  return instance.get("/auth/leave");
 }

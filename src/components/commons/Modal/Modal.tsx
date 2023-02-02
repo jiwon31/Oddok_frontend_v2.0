@@ -1,17 +1,30 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { createPortal } from "react-dom";
 import { Close } from "assets/icons";
 import useOutSideClick from "hooks/useOutSideClick";
 import styles from "./Modal.module.css";
 
-function Modal({ title, content, onClose, onAction, onSubAction, disabled }) {
-  const modalRef = useRef();
+type Action = {
+  text: string;
+  action: () => void;
+};
+export type ModalProps = {
+  title: string;
+  content: string | JSX.Element;
+  onClose: () => void;
+  onAction: Action;
+  onSubAction?: Action;
+  disabled?: boolean;
+};
+
+export default function Modal({ title, content, onClose, onAction, onSubAction, disabled }: ModalProps) {
+  const modalRef = useRef<HTMLDivElement>(null);
 
   useOutSideClick(modalRef, onClose);
 
   return (
     <>
-      {createPortal(<div className={styles.backdrop} />, document.getElementById("backdrop-root"))}
+      {createPortal(<div className={styles.backdrop} />, document.getElementById("backdrop-root")!)}
       {createPortal(
         <div className={styles.overlay} ref={modalRef}>
           <header>
@@ -32,10 +45,8 @@ function Modal({ title, content, onClose, onAction, onSubAction, disabled }) {
             </button>
           </footer>
         </div>,
-        document.getElementById("overlay-root"),
+        document.getElementById("overlay-root")!,
       )}
     </>
   );
 }
-
-export default Modal;

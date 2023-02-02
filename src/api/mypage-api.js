@@ -1,14 +1,14 @@
-import axios from "axios";
+import { instance } from "./axios-config";
 
 export const getProfile = async () => {
-  const response = await axios({
+  const response = await instance({
     url: "/profile",
   });
   return response.data;
 };
 
 export const getTimeRecordList = async (date) => {
-  const response = await axios({
+  const response = await instance({
     url: "/time-record",
     params: { date },
   });
@@ -16,14 +16,14 @@ export const getTimeRecordList = async (date) => {
 };
 
 export const getMyRoom = async () => {
-  const response = await axios({
+  const response = await instance({
     url: "/user/my-study-room",
   });
   return response.data;
 };
 
 export const createProfile = async (data) => {
-  const response = await axios({
+  const response = await instance({
     url: "/profile",
     method: "POST",
     data,
@@ -32,7 +32,7 @@ export const createProfile = async (data) => {
 };
 
 export const updateProfile = async (data) => {
-  const response = await axios({
+  const response = await instance({
     url: "/profile",
     method: "PUT",
     data,
@@ -41,7 +41,7 @@ export const updateProfile = async (data) => {
 };
 
 export const deleteStudyRoom = async (roomId) => {
-  const response = await axios({
+  const response = await instance({
     url: `/study-room/${roomId}`,
     method: "DELETE",
   });

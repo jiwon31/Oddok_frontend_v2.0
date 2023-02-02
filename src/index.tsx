@@ -1,5 +1,6 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import "./assets/styles";
@@ -19,12 +20,26 @@ import PublicRoute from "pages/Routes/PublicRoute";
 import PrivateRoute from "pages/Routes/PrivateRoute";
 import Layout from "components/layout/Layout";
 import { RecoilRoot } from "recoil";
+import GlobalErrorBoundary from "components/boundary/GlobalErrorBoundary";
 import App from "./App";
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      useErrorBoundary: true,
+    },
+  },
+});
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: (
+      <GlobalErrorBoundary>
+        <App />
+      </GlobalErrorBoundary>
+    ),
     children: [
       {
         element: <Layout />,
@@ -105,9 +120,10 @@ const router = createBrowserRouter([
 
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 root.render(
-  <React.StrictMode>
-    <RecoilRoot>
+  <RecoilRoot>
+    <QueryClientProvider client={queryClient}>
       <RouterProvider router={router} />
-    </RecoilRoot>
-  </React.StrictMode>,
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
+  </RecoilRoot>,
 );

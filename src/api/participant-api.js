@@ -1,6 +1,6 @@
-import axios from "axios";
+import { instance } from "./axios-config";
 
 export const getTotalParticipant = async () => {
-  const response = await axios.get("/participant/count");
+  const response = await instance.get("/participant/count");
   return response;
 };

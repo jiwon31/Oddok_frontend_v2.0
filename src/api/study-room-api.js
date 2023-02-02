@@ -1,10 +1,10 @@
-import axios from "axios";
 import StudyRoomError from "api/error/StudyRoomError";
 import { STUDY_MESSAGE } from "utils/constants/API_ERROR";
+import { instance } from "./axios-config";
 
 export const createStudyRoom = async (roomInfo) => {
   try {
-    const response = await axios({
+    const response = await instance({
       url: "/study-room",
       method: "POST",
       data: roomInfo,
@@ -17,7 +17,7 @@ export const createStudyRoom = async (roomInfo) => {
 
 export const joinStudyRoom = async (roomId) => {
   try {
-    const response = await axios({
+    const response = await instance({
       url: `/study-room/join/${roomId}`,
     });
     return response;
@@ -34,7 +34,7 @@ export const startStudyRoom = async (roomInfo) => {
 
 export const updateStudyRoom = async (roomId, newRoomInfo) => {
   try {
-    const response = await axios({
+    const response = await instance({
       url: `/study-room/${roomId}`,
       method: "PUT",
       data: newRoomInfo,
@@ -47,7 +47,7 @@ export const updateStudyRoom = async (roomId, newRoomInfo) => {
 
 export const leaveStudyRoom = async (roomId) => {
   try {
-    const response = await axios({
+    const response = await instance({
       url: `/study-room/leave/${roomId}`,
     });
     return response;
@@ -57,14 +57,14 @@ export const leaveStudyRoom = async (roomId) => {
 };
 
 export const getStudyRoom = async (roomId) => {
-  const response = await axios({
+  const response = await instance({
     url: `/study-room/${roomId}`,
   });
   return response;
 };
 
 export const getStudyRoomList = async (searchParams, page) => {
-  const response = await axios.get("/study-room", {
+  const response = await instance.get("/study-room", {
     params: {
       sort: searchParams.get("sort"),
       isPublic: searchParams.get("isPublic"),
@@ -78,7 +78,7 @@ export const getStudyRoomList = async (searchParams, page) => {
 };
 
 export const checkPassword = async (roomId, password) => {
-  const response = await axios.post(`/study-room/check/${roomId}`, {
+  const response = await instance.post(`/study-room/check/${roomId}`, {
     password,
   });
   return response;
