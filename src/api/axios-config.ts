@@ -1,5 +1,4 @@
 import axios from "axios";
-import ApiError from "./error/ApiError";
 
 export const instance = axios.create({
   timeout: 30000,
@@ -13,7 +12,7 @@ instance.interceptors.response.use(
   },
   (error) => {
     console.log("😵응답 에러", error.response);
-    return new ApiError(error.response.data.message, error.response.status);
+    return Promise.reject(error.response);
   },
 );
 

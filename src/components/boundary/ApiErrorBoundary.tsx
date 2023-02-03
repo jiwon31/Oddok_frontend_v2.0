@@ -1,6 +1,6 @@
 import ApiError from "api/error/ApiError";
 import { ErrorModal } from "components/commons";
-import ServerError from "pages/ErrorPage/ServerError/ServerError";
+import ServerError from "pages/ServerError/ServerError/ServerError";
 import { Component, ReactNode } from "react";
 import { Navigate } from "react-router-dom";
 

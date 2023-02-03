@@ -1,23 +1,28 @@
-import ApiError from "api/error/ApiError";
-import { ErrorModal } from "components/commons";
-import ServerError from "pages/ErrorPage/ServerError/ServerError";
 import { Component, ReactNode } from "react";
+import UnknownError from "components/commons/UnknownError";
+import ServerError from "pages/ServerError/ServerError/ServerError";
 
 type Props = {
   children: ReactNode;
 };
-type State<ErrorType extends Error> = {
+type State = {
   shouldHandleError: boolean;
   error?: ErrorType;
 };
+type ErrorType = {
+  status: number;
+  data: {
+    message?: string;
+  };
+};
 
-export default class GlobalErrorBoundary extends Component<Props, State<ApiError>> {
-  state: State<ApiError> = {
+export default class GlobalErrorBoundary extends Component<Props, State> {
+  state: State = {
     shouldHandleError: false,
     error: undefined,
   };
 
-  static getDerivedStateFromError(error: ApiError): State<ApiError> {
+  static getDerivedStateFromError(error: ErrorType): State {
     return {
       shouldHandleError: true,
       error,
@@ -35,15 +40,6 @@ export default class GlobalErrorBoundary extends Component<Props, State<ApiError
     if (error?.status === 500) {
       return <ServerError onClickRetry={() => this.setState({ shouldHandleError: false })} />;
     }
-    return (
-      <ErrorModal
-        content="에러가 발생했습니다. 잠시후 다시 시도해주세요."
-        onClose={() => this.setState({ shouldHandleError: false })}
-        onAction={{
-          text: "다시 시도하기",
-          action: () => this.setState({ shouldHandleError: false }),
-        }}
-      />
-    );
+    return <UnknownError onClick={() => this.setState({ shouldHandleError: false })} />;
   }
 }
