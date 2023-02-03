@@ -7,7 +7,7 @@ import { useSearchParams } from "hooks";
 import { STUDY_FILTER_OPTIONS, STUDY_SORT_OPTIONS } from "utils/constants/options";
 import styles from "./StudyRoomFeed.module.css";
 
-function StudyRoomList({ tagFilter }) {
+function StudyRoomList({ tagFilter = undefined }) {
   const { searchParams, setSearchParams } = useSearchParams();
   const [loadedStudyRooms, setLoadedStudyRooms] = useState([]);
   const [nextPage, setNextPage] = useState(1);
