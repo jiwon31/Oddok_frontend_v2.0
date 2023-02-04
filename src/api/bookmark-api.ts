@@ -1,18 +1,19 @@
+import { Bookmark } from "types/bookmark";
 import { instance } from "./axios-config";
 
 export default class BookmarkApi {
   async getBookmark() {
-    const response = await instance.get("/bookmark");
+    const response = await instance.get<Bookmark>("/bookmark");
     return response.data;
   }
 
   async saveBookmark(roomId: string) {
-    const response = await instance.post(`/bookmark/${roomId}`);
+    const response = await instance.post<Bookmark>(`/bookmark/${roomId}`);
     return response.data;
   }
 
   async removeBookmark() {
-    const response = await instance.delete("/bookmark");
+    const response = await instance.delete<void>("/bookmark");
     return response;
   }
 }
