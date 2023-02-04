@@ -139,6 +139,10 @@
   color: var(--gray700);
 }
 
+.list.active .id {
+  color: var(--primary);
+}
+
 .list.active .nickname {
   color: var(--primary);
 }

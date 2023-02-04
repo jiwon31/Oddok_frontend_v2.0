@@ -1,52 +1,18 @@
-/* eslint-disable no-restricted-syntax */
-import { useEffect, useState } from "react";
 import { BookmarkType } from "types/bookmark";
 import { PasswordModal, UserCount } from "components/commons";
 import { Thumbnail } from "assets/icons";
 import { useModal, useGoToPage } from "hooks";
+import { getFilteredUsersOfBookmark } from "utils/getFilteredUsersOfBookmark";
 import styles from "./Bookmark.module.css";
-
-type BookmarkUser = {
-  id?: number;
-  nickname: string | null;
-  joinTime: string | null;
-  isActive: boolean;
-};
-const initialUsers = [
-  { id: 1, nickname: null, joinTime: null, isActive: false },
-  { id: 2, nickname: null, joinTime: null, isActive: false },
-  { id: 3, nickname: null, joinTime: null, isActive: false },
-  { id: 4, nickname: null, joinTime: null, isActive: false },
-  { id: 5, nickname: null, joinTime: null, isActive: false },
-];
 
 export default function Bookmark({
   bookmark: { currentUsers, endAt, hashtags, id, isPublic, limitUsers, name, participant, rule },
 }: {
   bookmark: BookmarkType;
 }) {
-  const [users, setUsers] = useState<BookmarkUser[]>(initialUsers);
+  const users = getFilteredUsersOfBookmark(participant);
   const { isModal, openModal, closeModal } = useModal();
   const { goToSetting } = useGoToPage();
-
-  // 북마크한 스터디룸의 현재 참여자 리스트
-  useEffect(() => {
-    if (participant.length === 0) {
-      setUsers([...initialUsers]);
-      return;
-    }
-    const updatedUsers = [...users];
-    for (let i = 0; i < users.length; i += 1) {
-      if (!participant[i]) {
-        updatedUsers[i] = { ...users[i], nickname: null, joinTime: null, isActive: false };
-      } else {
-        const nickname = participant[i]!.nickname;
-        const joinTime = participant[i]!.joinTime.split(/[T, .]/)[1]!;
-        updatedUsers[i] = { ...users[i], nickname, joinTime, isActive: true };
-      }
-    }
-    setUsers(updatedUsers);
-  }, []);
 
   const handleStartBtnClick = () => {
     if (isPublic) {
