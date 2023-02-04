@@ -1,10 +1,17 @@
 /* eslint-disable no-restricted-syntax */
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { BookmarkType } from "types/bookmark";
 import { PasswordModal, UserCount } from "components/commons";
 import { Thumbnail } from "assets/icons";
 import { useModal, useGoToPage } from "hooks";
 import styles from "./Bookmark.module.css";
 
+type BookmarkUser = {
+  id?: number;
+  nickname: string | null;
+  joinTime: string | null;
+  isActive: boolean;
+};
 const initialUsers = [
   { id: 1, nickname: null, joinTime: null, isActive: false },
   { id: 2, nickname: null, joinTime: null, isActive: false },
@@ -13,9 +20,12 @@ const initialUsers = [
   { id: 5, nickname: null, joinTime: null, isActive: false },
 ];
 
-function Bookmark({ bookmark }) {
-  const { currentUsers, endAt, hashtags, id, isPublic, limitUsers, name, participant, rule } = bookmark;
-  const [users, setUsers] = useState(initialUsers);
+export default function Bookmark({
+  bookmark: { currentUsers, endAt, hashtags, id, isPublic, limitUsers, name, participant, rule },
+}: {
+  bookmark: BookmarkType;
+}) {
+  const [users, setUsers] = useState<BookmarkUser[]>(initialUsers);
   const { isModal, openModal, closeModal } = useModal();
   const { goToSetting } = useGoToPage();
 
@@ -30,15 +40,15 @@ function Bookmark({ bookmark }) {
       if (!participant[i]) {
         updatedUsers[i] = { ...users[i], nickname: null, joinTime: null, isActive: false };
       } else {
-        const nickname = participant[i].nickname;
-        const joinTime = participant[i].joinTime.split(/[T, .]/)[1];
+        const nickname = participant[i]!.nickname;
+        const joinTime = participant[i]!.joinTime.split(/[T, .]/)[1]!;
         updatedUsers[i] = { ...users[i], nickname, joinTime, isActive: true };
       }
     }
     setUsers(updatedUsers);
   }, []);
 
-  const onStartBtnClick = () => {
+  const handleStartBtnClick = () => {
     if (isPublic) {
       goToSetting(id);
     } else {
@@ -55,52 +65,50 @@ function Bookmark({ bookmark }) {
             <UserCount number={currentUsers} />
           </div>
           <div className={styles.count_box}>
-            <span className={styles.text}>스터디원 {currentUsers}명이 공부 중이에요</span>
-            <button className={styles.button} type="button" onClick={onStartBtnClick}>
+            <p className={styles.text}>스터디원 {currentUsers}명이 공부 중이에요</p>
+            <button className={styles.button} type="button" onClick={handleStartBtnClick}>
               바로 스터디 시작하기
             </button>
           </div>
         </div>
         <div className={styles.info}>
-          <div className={styles.thumbnail}>
-            <Thumbnail />
-          </div>
+          <Thumbnail className={styles.thumbnail} />
           <div className={styles.detail_box}>
             <h3 className={styles.name}>{name}</h3>
-            <p className={styles.detail}>
-              <span className={styles.title}>해시태그</span>
-              {hashtags.length !== 0 ? (
-                hashtags.map((hashtag) => (
-                  <span key={hashtag} className={styles.content}>
-                    #{hashtag}&nbsp;
-                  </span>
-                ))
-              ) : (
-                <span className={styles.content}>없음</span>
-              )}
-            </p>
-            <p className={styles.detail}>
-              <span className={styles.title}>인원</span>
-              <span className={styles.content}>
-                {currentUsers}명 / {limitUsers}명
-              </span>
-            </p>
-            <p className={styles.detail}>
-              <span className={styles.title}>기간</span>
-              <span className={styles.content}>{endAt ? `${endAt}까지` : "없음"}</span>
-            </p>
-            <p className={styles.rule}>
-              <span className={styles.rule_title}>스터디규칙</span>
-              <span className={styles.rule_content}>{rule ?? "없음"}</span>
-            </p>
+            <div className={styles.info_box}>
+              <p className={styles.detail}>
+                <span className={styles.title}>해시태그</span>
+                {hashtags.length !== 0 ? (
+                  hashtags.map((hashtag) => (
+                    <span key={hashtag} className={styles.content}>
+                      #{hashtag}&nbsp;
+                    </span>
+                  ))
+                ) : (
+                  <span className={styles.content}>없음</span>
+                )}
+              </p>
+              <p className={styles.detail}>
+                <span className={styles.title}>인원</span>
+                <span className={styles.content}>
+                  {currentUsers}명 / {limitUsers}명
+                </span>
+              </p>
+              <p className={styles.detail}>
+                <span className={styles.title}>기간</span>
+                <span className={styles.content}>{endAt ? `${endAt}까지` : "없음"}</span>
+              </p>
+              <p className={styles.rule}>
+                <span className={styles.rule_title}>스터디규칙</span>
+                <span className={styles.rule_content}>{rule || "없음"}</span>
+              </p>
+            </div>
           </div>
           <ul className={styles.users}>
             {users.map((user) => (
               <li key={user.id} className={`${styles.list} ${user.isActive && styles.active}`}>
-                <div className={styles.nickname}>
-                  <span>{user.id}.&nbsp;</span>
-                  <span>{user.nickname ?? "현재 스터디원"}</span>
-                </div>
+                <span className={styles.id}>{user.id}.&nbsp;</span>
+                <span className={styles.nickname}>{user.nickname ?? "현재 스터디원"}</span>
                 <span className={styles.time}>{user.isActive ? `${user.joinTime} ~ 지금까지` : "없음"}</span>
               </li>
             ))}
@@ -110,5 +118,3 @@ function Bookmark({ bookmark }) {
     </>
   );
 }
-
-export default Bookmark;

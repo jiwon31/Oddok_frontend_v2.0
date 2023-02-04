@@ -1,12 +1,12 @@
-export type Bookmark = {
+export type BookmarkType = {
   id: number;
   name: string;
   hashtags: string[];
   image: string | null;
   rule: string;
-  current_users: number;
-  limit_user: number;
-  end_at: string | null;
+  currentUsers: number;
+  limitUsers: number;
+  endAt: string | null;
   participant: Participant[];
   isPublic: boolean;
 };
