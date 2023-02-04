@@ -8,6 +8,7 @@ export type Bookmark = {
   limit_user: number;
   end_at: string | null;
   participant: Participant[];
+  isPublic: boolean;
 };
 
 type Participant = {
