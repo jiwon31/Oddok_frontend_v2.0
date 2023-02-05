@@ -34,10 +34,13 @@ export default function StudyRoomCard({ roomData }) {
       onError: (error) => {
         if (error.status === 400) {
           toast.error("하나의 스터디룸만 북마크할 수 있습니다.");
+        } else {
+          throw error;
         }
       },
     });
   };
+
   const handleBookmarkDeleteBtnClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     event.stopPropagation();
     removeBookmark
