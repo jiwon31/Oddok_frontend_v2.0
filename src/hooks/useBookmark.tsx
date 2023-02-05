@@ -2,6 +2,8 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import BookmarkApi from "api/bookmark-api";
 import { useSetRecoilState } from "recoil";
 import { bookmarkState } from "recoil/bookmark-state";
+import { BookmarkType } from "types/bookmark";
+import { ErrorType } from "types/error";
 import useRecoilUser from "./useRecoilUser";
 
 export default function useBookmark(bookmarkApi = new BookmarkApi()) {
@@ -15,7 +17,7 @@ export default function useBookmark(bookmarkApi = new BookmarkApi()) {
     enabled: !!user,
   });
 
-  const saveBookmark = useMutation((roomId: string) => bookmarkApi.saveBookmark(roomId), {
+  const saveBookmark = useMutation<BookmarkType, ErrorType, string>((roomId) => bookmarkApi.saveBookmark(roomId), {
     onSuccess: (data) => {
       setBookmark(data);
       queryClient.invalidateQueries(["bookmark", user?.id]);

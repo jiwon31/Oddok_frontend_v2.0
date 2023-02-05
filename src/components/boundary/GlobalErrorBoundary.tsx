@@ -1,4 +1,5 @@
 import { Component, ReactNode } from "react";
+import { ErrorType } from "types/error";
 import UnknownError from "components/commons/UnknownError";
 import ServerError from "pages/ServerError/ServerError/ServerError";
 
@@ -8,12 +9,6 @@ type Props = {
 type State = {
   shouldHandleError: boolean;
   error?: ErrorType;
-};
-type ErrorType = {
-  status: number;
-  data: {
-    message?: string;
-  };
 };
 
 export default class GlobalErrorBoundary extends Component<Props, State> {
