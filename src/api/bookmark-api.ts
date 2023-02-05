@@ -13,7 +13,6 @@ export default class BookmarkApi {
   }
 
   async removeBookmark() {
-    const response = await instance.delete<void>("/bookmark");
-    return response;
+    return instance.delete<void>("/bookmark");
   }
 }
