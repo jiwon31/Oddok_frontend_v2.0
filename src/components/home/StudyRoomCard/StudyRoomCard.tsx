@@ -6,6 +6,7 @@ import useBookmark from "hooks/useBookmark";
 import { PasswordModal, Thumbnail, UserCount } from "components/commons";
 import { Lock, Unlock, BookMark, BookMarkHeart } from "assets/icons";
 import { useModal, useGoToPage } from "hooks";
+import { toast } from "react-toastify";
 import styles from "./StudyRoomCard.module.css";
 
 export default function StudyRoomCard({ roomData }) {
@@ -29,14 +30,19 @@ export default function StudyRoomCard({ roomData }) {
       return goToLogin();
     }
     saveBookmark.mutate(roomData.id, {
-      onSuccess: () => window.alert("북마크가 추가되었습니다."),
+      onSuccess: () => toast.success("북마크가 추가되었습니다."),
+      onError: (error) => {
+        if (error.status === 400) {
+          toast.error("하나의 스터디룸만 북마크할 수 있습니다.");
+        }
+      },
     });
   };
   const handleBookmarkDeleteBtnClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     event.stopPropagation();
     removeBookmark
       .mutateAsync() //
-      .then(() => window.alert("북마크가 삭제되었습니다."));
+      .then(() => toast.success("북마크가 삭제되었습니다."));
   };
 
   return (
