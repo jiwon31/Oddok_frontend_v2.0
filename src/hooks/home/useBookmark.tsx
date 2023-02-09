@@ -14,6 +14,7 @@ export default function useBookmark(bookmarkApi = new BookmarkApi()) {
   const bookmarkQuery = useQuery(["bookmark", user?.id], bookmarkApi.getBookmark, {
     onSuccess: (data) => setBookmark(data),
     staleTime: 1000 * 60,
+    suspense: true,
     enabled: !!user,
   });
 

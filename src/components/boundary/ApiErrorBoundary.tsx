@@ -12,7 +12,7 @@ type State = {
   error?: ErrorType;
 };
 
-export default class GlobalErrorBoundary extends Component<Props, State> {
+export default class ApiErrorBoundary extends Component<Props, State> {
   state: State = {
     shouldHandleError: false,
     error: undefined,

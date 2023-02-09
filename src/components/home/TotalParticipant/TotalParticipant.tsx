@@ -8,6 +8,7 @@ export default function TotalParticipant() {
   const { data: totalParticipant } = useQuery(["participants"], getTotalParticipant, {
     initialData: 0,
     staleTime: 1000 * 60,
+    suspense: true,
   });
 
   return (
