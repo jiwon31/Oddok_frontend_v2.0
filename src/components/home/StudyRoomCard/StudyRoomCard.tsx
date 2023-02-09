@@ -2,7 +2,7 @@
 import { useRecoilValue } from "recoil";
 import { bookmarkState } from "recoil/bookmark-state";
 import useRecoilUser from "hooks/useRecoilUser";
-import useBookmark from "hooks/useBookmark";
+import useBookmark from "hooks/home/useBookmark";
 import { PasswordModal, Thumbnail, UserCount } from "components/commons";
 import { Lock, Unlock, BookMark, BookMarkHeart } from "assets/icons";
 import { useModal, useGoToPage } from "hooks";

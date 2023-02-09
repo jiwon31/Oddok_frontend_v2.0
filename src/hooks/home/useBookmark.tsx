@@ -4,7 +4,7 @@ import { useSetRecoilState } from "recoil";
 import { bookmarkState } from "recoil/bookmark-state";
 import { BookmarkType } from "types/bookmark";
 import { ErrorType } from "types/error";
-import useRecoilUser from "./useRecoilUser";
+import useRecoilUser from "../useRecoilUser";
 
 export default function useBookmark(bookmarkApi = new BookmarkApi()) {
   const { user } = useRecoilUser();

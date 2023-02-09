@@ -1,4 +1,4 @@
-import useBookmark from "hooks/useBookmark";
+import useBookmark from "hooks/home/useBookmark";
 import Bookmark from "./Bookmark/Bookmark";
 import TotalParticipant from "./TotalParticipant/TotalParticipant";
 
