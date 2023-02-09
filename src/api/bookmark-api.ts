@@ -7,7 +7,7 @@ export default class BookmarkApi {
     return response.data;
   }
 
-  async saveBookmark(roomId: string) {
+  async saveBookmark(roomId: number) {
     const response = await instance.post<BookmarkType>(`/bookmark/${roomId}`);
     return response.data;
   }

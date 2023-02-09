@@ -7,9 +7,10 @@ import { PasswordModal, Thumbnail, UserCount } from "components/commons";
 import { Lock, Unlock, BookMark, BookMarkHeart } from "assets/icons";
 import { useModal, useGoToPage } from "hooks";
 import { toast } from "react-toastify";
+import { RoomType } from "types/room";
 import styles from "./StudyRoomCard.module.css";
 
-export default function StudyRoomCard({ roomData }) {
+export default function StudyRoomCard({ roomData }: { roomData: RoomType }) {
   const bookmark = useRecoilValue(bookmarkState);
   const { user } = useRecoilUser();
   const { saveBookmark, removeBookmark } = useBookmark();

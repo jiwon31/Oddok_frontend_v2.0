@@ -18,7 +18,7 @@ export default function useBookmark(bookmarkApi = new BookmarkApi()) {
     enabled: !!user,
   });
 
-  const saveBookmark = useMutation<BookmarkType, ErrorType, string>((roomId) => bookmarkApi.saveBookmark(roomId), {
+  const saveBookmark = useMutation<BookmarkType, ErrorType, number>((roomId) => bookmarkApi.saveBookmark(roomId), {
     onSuccess: (data) => {
       setBookmark(data);
       queryClient.invalidateQueries(["bookmark", user?.id]);
