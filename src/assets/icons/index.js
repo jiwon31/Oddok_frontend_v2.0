@@ -34,6 +34,7 @@ import { ReactComponent as Award } from "./award-fill.svg";
 import { ReactComponent as Share } from "./share.svg";
 import { ReactComponent as Image } from "./image.svg";
 import { ReactComponent as Trash } from "./trash.svg";
+import { ReactComponent as Spinner } from "./loading-spinner.svg";
 
 export {
   VideoOn,
@@ -72,4 +73,5 @@ export {
   Share,
   Image,
   Trash,
+  Spinner,
 };
