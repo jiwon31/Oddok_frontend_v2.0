@@ -1,48 +1,34 @@
-import ApiError from "api/error/ApiError";
 import { ErrorModal } from "components/commons";
 import ServerError from "pages/ServerError/ServerError/ServerError";
 import { Component, ReactNode } from "react";
 import { Navigate } from "react-router-dom";
+import { ErrorType } from "types/error";
 
 type Props = {
   children: ReactNode;
 };
-type State<ErrorType extends Error> = {
+type State = {
   shouldHandleError: boolean;
-  shouldRethrow: boolean;
   error?: ErrorType;
 };
 
-export default class GlobalErrorBoundary extends Component<Props, State<ApiError>> {
-  state: State<ApiError> = {
+export default class GlobalErrorBoundary extends Component<Props, State> {
+  state: State = {
     shouldHandleError: false,
-    shouldRethrow: false,
     error: undefined,
   };
 
-  static getDerivedStateFromError(error: ApiError): State<ApiError> {
-    // TODO: 처리할 수 없는 에러라면
-    // if (error) {
-    //   return {
-    //     shouldHandleError: false,
-    //     shouldRethrow: true,
-    //     error,
-    //   };
-    // }
+  static getDerivedStateFromError(error: ErrorType): State {
     return {
       shouldHandleError: true,
-      shouldRethrow: false,
       error,
     };
   }
 
   render() {
-    const { shouldHandleError, shouldRethrow, error } = this.state;
+    const { shouldHandleError, error } = this.state;
     const { children } = this.props;
 
-    if (shouldRethrow) {
-      throw error;
-    }
     if (!shouldHandleError) {
       return children;
     }
@@ -54,7 +40,6 @@ export default class GlobalErrorBoundary extends Component<Props, State<ApiError
     if (error?.status === 500) {
       return <ServerError onClickRetry={() => this.setState({ shouldHandleError: false })} />;
     }
-    // TODO: 에러 컴포넌트 콜백으로 받아서 리턴. 없으면 에러모달?(default)
     return (
       <ErrorModal
         content="에러가 발생했습니다. 잠시후 다시 시도해주세요."
