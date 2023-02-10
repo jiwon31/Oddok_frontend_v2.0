@@ -24,6 +24,10 @@ export default class GlobalErrorBoundary extends Component<Props, State> {
     };
   }
 
+  resetError() {
+    this.setState({ shouldHandleError: false });
+  }
+
   render() {
     const { shouldHandleError, error } = this.state;
     const { children } = this.props;
@@ -33,8 +37,8 @@ export default class GlobalErrorBoundary extends Component<Props, State> {
     }
     // 서버 에러
     if (error?.status === 500) {
-      return <ServerError onClickRetry={() => this.setState({ shouldHandleError: false })} />;
+      return <ServerError onClickRetry={this.resetError} />;
     }
-    return <UnknownError onClick={() => this.setState({ shouldHandleError: false })} />;
+    return <UnknownError onClick={this.resetError} />;
   }
 }

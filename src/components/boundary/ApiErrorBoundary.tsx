@@ -25,6 +25,10 @@ export default class ApiErrorBoundary extends Component<Props, State> {
     };
   }
 
+  resetError() {
+    this.setState({ shouldHandleError: false });
+  }
+
   render() {
     const { shouldHandleError, error } = this.state;
     const { children } = this.props;
@@ -38,8 +42,8 @@ export default class ApiErrorBoundary extends Component<Props, State> {
     }
     // 서버 에러
     if (error?.status === 500) {
-      return <ServerError onClickRetry={() => this.setState({ shouldHandleError: false })} />;
+      return <ServerError onClickRetry={this.resetError} />;
     }
-    return <AsyncError onClick={() => this.setState({ shouldHandleError: false })} />;
+    return <AsyncError onClick={this.resetError} />;
   }
 }
