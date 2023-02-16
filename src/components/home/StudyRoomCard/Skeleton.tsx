@@ -1,7 +1,6 @@
-import React from "react";
 import styles from "./Skeleton.module.css";
 
-function Skeleton() {
+export default function Skeleton() {
   return (
     <li className={styles.item}>
       <div>
@@ -14,5 +13,3 @@ function Skeleton() {
     </li>
   );
 }
-
-export default Skeleton;
