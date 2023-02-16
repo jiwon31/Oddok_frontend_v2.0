@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 
-function useGoToPage() {
+export default function useGoToPage() {
   const navigate = useNavigate();
 
   const goToMain = useCallback(() => navigate("/"), [navigate]);
@@ -14,10 +14,10 @@ function useGoToPage() {
 
   const goToCreate = useCallback(() => navigate("/studyroom/create"), [navigate]);
 
-  const goToSetting = useCallback((id) => navigate(`/studyroom/${id}/setting`), [navigate]);
+  const goToSetting = useCallback((id: number) => navigate(`/studyroom/${id}/setting`), [navigate]);
 
   const goToStudy = useCallback(
-    (id, token) =>
+    (id: number, token: string) =>
       navigate(`/studyroom/${id}`, {
         state: {
           token,
@@ -28,5 +28,3 @@ function useGoToPage() {
 
   return { goToMain, goToLogin, goToSearch, goToMyPage, goToCreate, goToSetting, goToStudy };
 }
-
-export default useGoToPage;
