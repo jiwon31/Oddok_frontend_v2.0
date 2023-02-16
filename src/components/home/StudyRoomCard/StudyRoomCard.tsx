@@ -24,11 +24,10 @@ export default function StudyRoomCard({ roomData }: { roomData: RoomType }) {
       openModal();
     }
   };
-
-  const handleBookmarkAddBtnClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    event.stopPropagation();
+  const handleBookmarkAddBtnClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.stopPropagation();
     if (!user) {
-      return goToLogin();
+      goToLogin();
     }
     saveBookmark.mutate(roomData.id, {
       onSuccess: () => toast.success("북마크가 추가되었습니다."),
@@ -41,9 +40,8 @@ export default function StudyRoomCard({ roomData }: { roomData: RoomType }) {
       },
     });
   };
-
-  const handleBookmarkDeleteBtnClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    event.stopPropagation();
+  const handleBookmarkDeleteBtnClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.stopPropagation();
     removeBookmark
       .mutateAsync() //
       .then(() => toast.success("북마크가 삭제되었습니다."));
