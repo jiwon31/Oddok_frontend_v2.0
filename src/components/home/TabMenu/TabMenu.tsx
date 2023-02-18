@@ -27,13 +27,13 @@ export default function TabMenu({ defaultValue, setCurrentCategory }: TabMenuPro
 
   return (
     <nav className={styles.tab_menu}>
-      {Object.entries<CategoryOption>(items).map(([name, value]) => (
+      {Object.entries<CategoryOption>(items).map(([label, value]) => (
         <div
           key={value}
           className={`${styles.container} ${current === value && styles.active}`}
           onClick={() => filterCategory(value)}
         >
-          {name}
+          {label}
         </div>
       ))}
     </nav>
