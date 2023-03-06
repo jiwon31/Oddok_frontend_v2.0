@@ -17,7 +17,7 @@ const Input = forwardRef(function Input(
   inputRef: React.LegacyRef<HTMLInputElement>,
 ) {
   return (
-    <div className={`${styles.text_field} ${isInvalid ? styles.invalid : ""}`}>
+    <div className={`${styles.text_field} ${isInvalid && styles.invalid}`}>
       <input
         className={styles.input}
         ref={inputRef}
