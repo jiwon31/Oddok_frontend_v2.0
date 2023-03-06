@@ -51,6 +51,7 @@
     "consistent-return": "off",
     "no-alert": "off",
     "no-useless-constructor": "off",
-    "react/state-in-constructor": "off"
+    "react/state-in-constructor": "off",
+    "prefer-arrow-callback": "off"
   }
 }
