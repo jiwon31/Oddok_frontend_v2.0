@@ -1,16 +1,16 @@
-import React, { useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import { SideNavBar, MyGoal, StudyTime, MyRoom, MyAccount } from "components/mypage";
 import styles from "./MyPage.module.css";
 
-function MyPage() {
-  const indexRef = useRef();
-  const targetRef = useRef();
+export default function MyPage() {
+  const indexRef = useRef<HTMLUListElement>(null);
+  const targetRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const indexNodes = [...indexRef.current.children].filter((e) => e.children.length === 0);
+    const indexNodes = [...indexRef.current!.children].filter((e) => e.children.length === 0);
     indexNodes.map((node, i) =>
       node.addEventListener("click", () => {
-        targetRef.current.children[i].scrollIntoView({
+        targetRef.current!.children[i]?.scrollIntoView({
           behavior: "smooth",
           block: "start",
         });
@@ -30,5 +30,3 @@ function MyPage() {
     </div>
   );
 }
-
-export default MyPage;
