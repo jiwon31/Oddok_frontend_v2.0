@@ -1,7 +1,6 @@
-import React from "react";
 import styles from "./SideNavBar.module.css";
 
-function SideNavBar({ indexRef }) {
+export default function SideNavBar({ indexRef }: { indexRef: React.RefObject<HTMLUListElement> }) {
   return (
     <ul ref={indexRef} className={styles.side_nav_bar}>
       <li>내 목표</li>
@@ -16,5 +15,3 @@ function SideNavBar({ indexRef }) {
     </ul>
   );
 }
-
-export default SideNavBar;
