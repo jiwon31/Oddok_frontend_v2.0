@@ -1,5 +1,6 @@
 import { useRef, useEffect } from "react";
 import { SideNavBar, MyGoal, StudyTime, MyRoom, MyAccount } from "components/mypage";
+import AsyncBoundary from "components/boundary/AsyncBoundary";
 import styles from "./MyPage.module.css";
 
 export default function MyPage() {
@@ -22,7 +23,9 @@ export default function MyPage() {
     <div className={styles.container}>
       <SideNavBar indexRef={indexRef} />
       <main ref={targetRef}>
-        <MyGoal />
+        <AsyncBoundary>
+          <MyGoal />
+        </AsyncBoundary>
         <StudyTime />
         <MyRoom />
         <MyAccount />

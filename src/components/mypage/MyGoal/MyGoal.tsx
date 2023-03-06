@@ -1,18 +1,19 @@
-import React from "react";
-import { useAsync, useModal } from "hooks";
-import { getProfile } from "api/mypage-api";
+import { useModal } from "hooks";
 import { getDday, dateParsing } from "utils";
 import { Textarea } from "components/commons";
 import { MyGoalEditModal, EditButton } from "components/mypage";
+import useProfile from "hooks/mypage/useProfile";
 import styles from "./MyGoal.module.css";
 
-function MyGoal() {
-  const { data: profileData, request: refetchProfile } = useAsync({ requestFn: getProfile, skip: false });
+export default function MyGoal() {
+  const {
+    profileQuery: { data: profileData },
+  } = useProfile();
   const { isModal, openModal, closeModal } = useModal();
 
   return (
     <>
-      {isModal && <MyGoalEditModal profileData={profileData} onClose={closeModal} refetch={refetchProfile} />}
+      {isModal && <MyGoalEditModal profileData={profileData} onClose={closeModal} />}
       <section className={styles.my_goal}>
         <div className={styles.heading}>
           <div>내 목표</div>
@@ -22,11 +23,11 @@ function MyGoal() {
           <div>
             <div className={styles.sub_heading}>디데이</div>
             <div className={styles.box}>
-              <div className={styles.bold}>{profileData?.dday ? getDday(dateParsing(profileData.dday)) : "D-DAY"}</div>
+              <div className={styles.bold}>{profileData ? getDday(dateParsing(profileData.dday)) : "D-DAY"}</div>
               <div>
-                <div>{profileData?.ddayInfo ? profileData.ddayInfo : "날짜를 추가하세요."}</div>
+                <div>{profileData ? profileData.ddayInfo : "날짜를 추가하세요."}</div>
                 <div>
-                  {profileData?.dday
+                  {profileData
                     ? `${new Date(profileData.dday).getFullYear()}. ${
                         new Date(profileData.dday).getMonth() + 1
                       }. ${new Date(profileData.dday).getDate()}`
@@ -38,9 +39,7 @@ function MyGoal() {
           <div>
             <div className={styles.sub_heading}>공부시간</div>
             <div className={styles.box}>
-              <div className={styles.bold}>
-                {profileData?.targetTime ? `${profileData?.targetTime} 시간` : "몇 시간"}
-              </div>
+              <div className={styles.bold}>{profileData ? `${profileData?.targetTime} 시간` : "몇 시간"}</div>
               <div>/하루</div>
             </div>
           </div>
@@ -59,5 +58,3 @@ function MyGoal() {
     </>
   );
 }
-
-export default MyGoal;
