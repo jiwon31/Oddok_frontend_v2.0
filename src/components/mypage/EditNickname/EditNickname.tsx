@@ -18,7 +18,7 @@ export default function EditNickname() {
         </div>
         <div>
           <div className={styles.sub_heading}>닉네임</div>
-          <div className={styles.nickname}>{user?.nickname || ""}</div>
+          <div className={styles.nickname}>{user?.nickname ?? ""}</div>
         </div>
       </div>
     </>
