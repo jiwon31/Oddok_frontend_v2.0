@@ -4,6 +4,7 @@ import { dateParsing, dateFormatting } from "utils";
 import { TARGET_TIME_OPTIONS } from "utils/constants/options";
 import { Profile } from "types/mypage";
 import useProfile from "hooks/mypage/useProfile";
+import useToast from "hooks/useToast";
 import styles from "./MyGoalEditModal.module.css";
 
 type MyGoalEditModalProps = {
@@ -21,6 +22,7 @@ export default function MyGoalEditModal({ profileData, onClose }: MyGoalEditModa
   const [inputData, setInputData] = useState(profileData ?? initialData);
   const isValid = inputData.dday && inputData.ddayInfo;
   const { createProfile, updateProfile } = useProfile();
+  const { successToast } = useToast();
 
   const selectDate = (date: string) => {
     setInputData((prev) => ({ ...prev, dday: dateFormatting(date) }));
@@ -35,11 +37,19 @@ export default function MyGoalEditModal({ profileData, onClose }: MyGoalEditModa
     setInputData((prev) => ({ ...prev, goal: e.target.value }));
   };
 
-  const edit = async () => {
+  const onEditSuccess = (message: string) => {
+    successToast(message);
+    onClose();
+  };
+  const editProfile = async () => {
     if (profileData) {
-      updateProfile.mutate(inputData);
+      updateProfile.mutate(inputData, {
+        onSuccess: () => onEditSuccess("목표 수정이 완료되었습니다."),
+      });
     } else {
-      createProfile.mutate(inputData);
+      createProfile.mutate(inputData, {
+        onSuccess: () => onEditSuccess("새로운 목표가 추가되었습니다."),
+      });
     }
   };
 
@@ -77,10 +87,7 @@ export default function MyGoalEditModal({ profileData, onClose }: MyGoalEditModa
       onClose={onClose}
       onAction={{
         text: "확인",
-        action: () => {
-          edit();
-          onClose();
-        },
+        action: editProfile,
       }}
       disabled={!isValid}
     />
