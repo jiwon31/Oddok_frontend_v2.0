@@ -62,8 +62,8 @@ export default class AuthApi {
   async logout(): Promise<void> {
     return instance.get("/auth/logout");
   }
-}
 
-export async function deleteAccount(): Promise<void> {
-  return instance.get("/auth/leave");
+  async deleteAccount(): Promise<void> {
+    return instance.get("/auth/leave");
+  }
 }

@@ -1,5 +1,5 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import Cookies from "js-cookie";
 import AuthApi from "api/auth/auth-api";
 import UserApi from "api/user-api";
@@ -44,5 +44,13 @@ export default function useAuth(authCode?: string, authApi = new AuthApi(new Use
       },
     );
 
-  return { loginQuery, logoutQuery, refreshQuery };
+  const deleteAccount = useMutation(authApi.deleteAccount, {
+    onSuccess: () => {
+      setUser(null);
+      Cookies.remove("logged_in");
+      navigate("/");
+    },
+  });
+
+  return { loginQuery, logoutQuery, refreshQuery, deleteAccount };
 }
