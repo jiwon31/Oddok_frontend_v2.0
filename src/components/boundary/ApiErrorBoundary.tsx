@@ -25,9 +25,9 @@ export default class ApiErrorBoundary extends Component<Props, State> {
     };
   }
 
-  resetError() {
+  resetError = () => {
     this.setState({ shouldHandleError: false });
-  }
+  };
 
   render() {
     const { shouldHandleError, error } = this.state;
