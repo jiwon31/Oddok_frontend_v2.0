@@ -6,8 +6,8 @@ import useBookmark from "hooks/home/useBookmark";
 import { PasswordModal, Thumbnail, UserCount } from "components/commons";
 import { Lock, Unlock, BookMark, BookMarkHeart } from "assets/icons";
 import { useModal, useGoToPage } from "hooks";
-import { toast } from "react-toastify";
 import { RoomType } from "types/room";
+import useToast from "hooks/useToast";
 import styles from "./StudyRoomCard.module.css";
 
 export default function StudyRoomCard({ roomData }: { roomData: RoomType }) {
@@ -16,6 +16,7 @@ export default function StudyRoomCard({ roomData }: { roomData: RoomType }) {
   const { saveBookmark, removeBookmark } = useBookmark();
   const { isModal, openModal, closeModal } = useModal();
   const { goToLogin, goToSetting } = useGoToPage();
+  const { successToast, errorToast } = useToast();
 
   const handleStudyRoomClick = () => {
     if (roomData.isPublic) {
@@ -30,10 +31,10 @@ export default function StudyRoomCard({ roomData }: { roomData: RoomType }) {
       goToLogin();
     }
     saveBookmark.mutate(roomData.id, {
-      onSuccess: () => toast.success("북마크가 추가되었습니다."),
+      onSuccess: () => successToast("북마크가 추가되었습니다."),
       onError: (error) => {
         if (error.status === 400) {
-          toast.error("하나의 스터디룸만 북마크할 수 있습니다.");
+          errorToast("하나의 스터디룸만 북마크할 수 있습니다.");
         } else {
           throw error;
         }
@@ -44,7 +45,7 @@ export default function StudyRoomCard({ roomData }: { roomData: RoomType }) {
     e.stopPropagation();
     removeBookmark
       .mutateAsync() //
-      .then(() => toast.success("북마크가 삭제되었습니다."));
+      .then(() => successToast("북마크가 삭제되었습니다."));
   };
 
   return (
