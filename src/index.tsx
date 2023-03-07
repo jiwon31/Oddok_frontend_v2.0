@@ -30,6 +30,10 @@ const queryClient = new QueryClient({
       useErrorBoundary: true,
       retry: false,
     },
+    mutations: {
+      useErrorBoundary: true,
+      retry: false,
+    },
   },
 });
 
