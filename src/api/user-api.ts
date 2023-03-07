@@ -2,20 +2,15 @@ import { User } from "types/user";
 import { instance } from "./axios-config";
 
 export default class UserApi {
-  async getUserInfo(): Promise<User> {
-    const response = await instance.get("/user/info");
+  async getUserInfo() {
+    const response = await instance.get<User>("/user/info");
     return response.data;
   }
 
-  async getNickname() {
-    const response = await instance.get("/user/nickname");
+  async updateNickname(nickname: string) {
+    const response = await instance.patch<{ nickname: string }>("/user/nickname", {
+      nickname,
+    });
     return response.data;
   }
-}
-
-export async function editNickname(nickname: string) {
-  const response = instance.patch("/user/nickname", {
-    nickname,
-  });
-  return response;
 }
