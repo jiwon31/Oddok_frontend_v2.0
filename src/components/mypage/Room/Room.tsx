@@ -1,8 +1,8 @@
-import React from "react";
 import { Thumbnail } from "assets/icons";
+import { MyRoomType } from "types/mypage";
 import styles from "./Room.module.css";
 
-function Room({ roomData }) {
+export default function Room({ roomData }: { roomData: MyRoomType }) {
   return (
     <div className={styles.box}>
       <div className={styles.thumbnail_box}>
@@ -20,5 +20,3 @@ function Room({ roomData }) {
     </div>
   );
 }
-
-export default Room;
