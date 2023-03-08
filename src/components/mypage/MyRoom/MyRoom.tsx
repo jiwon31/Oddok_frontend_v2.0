@@ -11,7 +11,7 @@ export default function MyRoom() {
 
   return (
     <>
-      {isModal && <MyRoomEditModal roomData={myRoomData} onClose={closeModal} />}
+      {myRoomData && isModal && <MyRoomEditModal roomData={myRoomData} onClose={closeModal} />}
       <section>
         <div className={styles.heading}>
           <h2>생성 스터디룸</h2>

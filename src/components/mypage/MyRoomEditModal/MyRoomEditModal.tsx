@@ -1,18 +1,20 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { updateStudyRoom } from "api/study-room-api";
-// import { deleteStudyRoom } from "api/mypage-api";
 import { Modal } from "components/commons";
 import { SettingForm } from "components/study";
 import { Room, EditButton } from "components/mypage";
+import { MyRoomType } from "types/mypage";
+import useMyRoom from "hooks/mypage/useMyRoom";
+import useToast from "hooks/useToast";
 import styles from "./MyRoomEditModal.module.css";
 
-function MyRoomEditModal({ roomData, onClose }) {
+export default function MyRoomEditModal({ roomData, onClose }: { roomData: MyRoomType; onClose: () => void }) {
   const [inputData, setInputData] = useState(roomData);
   const [isFormOpen, setIsFormOpen] = useState(false);
+  const { deleteMyRoom } = useMyRoom();
+  const { successToast } = useToast();
 
-  const editHandler = () => {
-    setIsFormOpen(true);
-  };
+  const editHandler = () => setIsFormOpen(true);
 
   const updateMyRoom = async () => {
     try {
@@ -23,13 +25,13 @@ function MyRoomEditModal({ roomData, onClose }) {
   };
 
   const deleteHandler = async () => {
-    try {
-      if (window.confirm("정말로 삭제하시겠습니까?")) {
-        // await deleteStudyRoom(roomData.id);
-        onClose();
-      }
-    } catch (e) {
-      console.error(e);
+    if (window.confirm("정말로 삭제하시겠습니까?")) {
+      deleteMyRoom.mutate(roomData.id, {
+        onSuccess: () => {
+          successToast("스터디룸이 삭제되었습니다.");
+          onClose();
+        },
+      });
     }
   };
 
@@ -66,5 +68,3 @@ function MyRoomEditModal({ roomData, onClose }) {
     </div>
   );
 }
-
-export default MyRoomEditModal;
