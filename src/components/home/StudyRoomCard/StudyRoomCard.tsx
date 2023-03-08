@@ -18,7 +18,14 @@ export default function StudyRoomCard({ roomData }: { roomData: RoomType }) {
   const { goToLogin, goToSetting } = useGoToPage();
   const { successToast, errorToast } = useToast();
 
+  const checkLoggedIn = () => {
+    if (!user) {
+      goToLogin();
+    }
+  };
+
   const handleStudyRoomClick = () => {
+    checkLoggedIn();
     if (roomData.isPublic) {
       goToSetting(roomData.id);
     } else {
@@ -27,9 +34,7 @@ export default function StudyRoomCard({ roomData }: { roomData: RoomType }) {
   };
   const handleBookmarkAddBtnClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.stopPropagation();
-    if (!user) {
-      goToLogin();
-    }
+    checkLoggedIn();
     saveBookmark.mutate(roomData.id, {
       onSuccess: () => successToast("북마크가 추가되었습니다."),
       onError: (error) => {
