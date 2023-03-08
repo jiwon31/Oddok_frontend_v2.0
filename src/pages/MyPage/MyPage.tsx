@@ -27,7 +27,9 @@ export default function MyPage() {
           <MyGoal />
         </AsyncBoundary>
         <StudyTime />
-        <MyRoom />
+        <AsyncBoundary>
+          <MyRoom />
+        </AsyncBoundary>
         <MyAccount />
       </main>
     </div>

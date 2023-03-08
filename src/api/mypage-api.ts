@@ -25,18 +25,3 @@ export const getTimeRecordList = async (date: string) => {
   });
   return response.data;
 };
-
-export const getMyRoom = async () => {
-  const response = await instance({
-    url: "/user/my-study-room",
-  });
-  return response.data;
-};
-
-export const deleteStudyRoom = async (roomId: number) => {
-  const response = await instance({
-    url: `/study-room/${roomId}`,
-    method: "DELETE",
-  });
-  return response.data;
-};
