@@ -32,19 +32,6 @@ export const startStudyRoom = async (roomInfo) => {
   return { id, token };
 };
 
-export const updateStudyRoom = async (roomId, newRoomInfo) => {
-  try {
-    const response = await instance({
-      url: `/study-room/${roomId}`,
-      method: "PUT",
-      data: newRoomInfo,
-    });
-    return response;
-  } catch (error) {
-    throw new StudyRoomError(error, STUDY_MESSAGE.UPDATE_STUDY_ROOM[error.status]);
-  }
-};
-
 export const leaveStudyRoom = async (roomId) => {
   try {
     const response = await instance({

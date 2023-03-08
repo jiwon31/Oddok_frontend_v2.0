@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { updateStudyRoom } from "api/study-room-api";
 import { Modal } from "components/commons";
 import { SettingForm } from "components/study";
 import { Room, EditButton } from "components/mypage";
@@ -11,17 +10,21 @@ import styles from "./MyRoomEditModal.module.css";
 export default function MyRoomEditModal({ roomData, onClose }: { roomData: MyRoomType; onClose: () => void }) {
   const [inputData, setInputData] = useState(roomData);
   const [isFormOpen, setIsFormOpen] = useState(false);
-  const { deleteMyRoom } = useMyRoom();
+  const { updateMyRoom, deleteMyRoom } = useMyRoom();
   const { successToast } = useToast();
 
   const editHandler = () => setIsFormOpen(true);
 
-  const updateMyRoom = async () => {
-    try {
-      await updateStudyRoom(roomData.id, inputData);
-    } catch (e) {
-      console.error(e);
-    }
+  const updateRoom = async () => {
+    updateMyRoom.mutate(
+      { roomId: roomData.id, newInfo: inputData },
+      {
+        onSuccess: () => {
+          successToast("스터디룸 수정이 완료되었습니다.");
+          onClose();
+        },
+      },
+    );
   };
 
   const deleteHandler = async () => {
@@ -50,7 +53,11 @@ export default function MyRoomEditModal({ roomData, onClose }: { roomData: MyRoo
   return (
     <div>
       {isFormOpen ? (
-        <SettingForm roomData={roomData} onClose={() => setIsFormOpen(false)} onUpdate={(data) => setInputData(data)} />
+        <SettingForm
+          roomData={roomData}
+          onClose={() => setIsFormOpen(false)}
+          onUpdate={(data: MyRoomType) => setInputData(data)}
+        />
       ) : (
         <Modal
           title="스터디룸 수정"
@@ -58,10 +65,7 @@ export default function MyRoomEditModal({ roomData, onClose }: { roomData: MyRoo
           onClose={onClose}
           onAction={{
             text: "확인",
-            action: () => {
-              updateMyRoom();
-              onClose();
-            },
+            action: updateRoom,
           }}
         />
       )}
