@@ -17,9 +17,9 @@ function SettingSideBar({ session }) {
 
   const toggleSettingForm = () => setIsFormOpen((prev) => !prev);
 
-  const updateRoomInfo = async (newInfo) => {
+  const updateRoomInfo = async (updatedInfo) => {
     try {
-      const res = await updateMyRoom.mutateAsync({ roomId, newInfo });
+      const res = await updateMyRoom.mutateAsync({ roomId, updatedInfo });
       session?.signal({
         data: JSON.stringify(res),
         to: [],

@@ -7,8 +7,8 @@ export default class UserRoomApi {
     return response.data;
   }
 
-  async updateStudyRoom(roomId: number, newRoomInfo: MyRoomType) {
-    const response = await instance.put<MyRoomType>(`/study-room/${roomId}`, newRoomInfo);
+  async updateStudyRoom(roomId: number, updatedInfo: MyRoomType) {
+    const response = await instance.put<MyRoomType>(`/study-room/${roomId}`, updatedInfo);
     return response.data;
   }
 

@@ -14,7 +14,8 @@ export default function useMyRoom(userRoomApi = new UserRoomApi()) {
   });
 
   const updateMyRoom = useMutation(
-    ({ roomId, newInfo }: { roomId: number; newInfo: MyRoomType }) => userRoomApi.updateStudyRoom(roomId, newInfo),
+    ({ roomId, updatedInfo }: { roomId: number; updatedInfo: MyRoomType }) =>
+      userRoomApi.updateStudyRoom(roomId, updatedInfo),
     {
       onSuccess: () => queryClient.invalidateQueries(["my-room", user?.id]),
     },

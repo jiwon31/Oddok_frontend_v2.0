@@ -8,7 +8,7 @@ import useToast from "hooks/useToast";
 import styles from "./MyRoomEditModal.module.css";
 
 export default function MyRoomEditModal({ roomData, onClose }: { roomData: MyRoomType; onClose: () => void }) {
-  const [inputData, setInputData] = useState(roomData);
+  const [updatedInfo, setUpdatedInfo] = useState(roomData);
   const [isFormOpen, setIsFormOpen] = useState(false);
   const { updateMyRoom, deleteMyRoom } = useMyRoom();
   const { successToast } = useToast();
@@ -17,7 +17,7 @@ export default function MyRoomEditModal({ roomData, onClose }: { roomData: MyRoo
 
   const updateRoom = async () => {
     updateMyRoom.mutate(
-      { roomId: roomData.id, newInfo: inputData },
+      { roomId: roomData.id, updatedInfo },
       {
         onSuccess: () => {
           successToast("스터디룸 수정이 완료되었습니다.");
@@ -42,7 +42,7 @@ export default function MyRoomEditModal({ roomData, onClose }: { roomData: MyRoo
     <div className={styles.box}>
       <h3>생성 스터디룸</h3>
       <div className={styles.item}>
-        <Room roomData={inputData} />
+        <Room roomData={updatedInfo} />
         <div className={styles.buttons}>
           <EditButton onClick={editHandler} />
           <EditButton onClick={deleteHandler} deleteBtn />
@@ -56,7 +56,7 @@ export default function MyRoomEditModal({ roomData, onClose }: { roomData: MyRoo
         <SettingForm
           roomData={roomData}
           onClose={() => setIsFormOpen(false)}
-          onUpdate={(data: MyRoomType) => setInputData(data)}
+          onUpdate={(data: MyRoomType) => setUpdatedInfo(data)}
         />
       ) : (
         <Modal
