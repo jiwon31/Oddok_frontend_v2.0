@@ -26,7 +26,9 @@ export default function MyPage() {
         <AsyncBoundary>
           <MyGoal />
         </AsyncBoundary>
-        <StudyTime />
+        <AsyncBoundary>
+          <StudyTime />
+        </AsyncBoundary>
         <AsyncBoundary>
           <MyRoom />
         </AsyncBoundary>

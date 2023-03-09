@@ -17,11 +17,3 @@ export default class MyPageApi {
     return response.data;
   }
 }
-
-export const getTimeRecordList = async (date: string) => {
-  const response = await instance({
-    url: "/time-record",
-    params: { date },
-  });
-  return response.data;
-};
