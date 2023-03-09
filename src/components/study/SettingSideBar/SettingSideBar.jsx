@@ -4,7 +4,7 @@ import { useRecoilState, useRecoilValue } from "recoil";
 import { roomInfoState } from "recoil/studyroom-state";
 import { userState } from "recoil/user-state";
 import { Hashtag } from "assets/icons";
-import { updateStudyRoom } from "api/study-room-api";
+import useMyRoom from "hooks/mypage/useMyRoom";
 import { SettingForm } from "..";
 import styles from "./SettingSideBar.module.css";
 
@@ -13,12 +13,13 @@ function SettingSideBar({ session }) {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [roomInfo, setRoomInfo] = useRecoilState(roomInfoState);
   const { updateAllowed } = useRecoilValue(userState);
+  const { updateMyRoom } = useMyRoom();
 
   const toggleSettingForm = () => setIsFormOpen((prev) => !prev);
 
-  const updateRoomInfo = async (data) => {
+  const updateRoomInfo = async (newInfo) => {
     try {
-      const res = await updateStudyRoom(roomId, data);
+      const res = await updateMyRoom.mutateAsync({ roomId, newInfo });
       session?.signal({
         data: JSON.stringify(res),
         to: [],
