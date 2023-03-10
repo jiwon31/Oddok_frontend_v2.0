@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Picker from "react-datepicker";
 import ko from "date-fns/locale/ko";
 import { addDays, subDays } from "date-fns";
@@ -10,11 +10,11 @@ import "react-datepicker/dist/react-datepicker.css";
 import "../../../assets/styles/calendar_style.css";
 import styles from "./DatePicker.module.css";
 
-function DatePicker({ onChange }) {
+export default function DatePicker({ onChange }: { onChange: (date: Date) => void }) {
   const [currentDate, setCurrentDate] = useState(new Date());
   const isMaxDate = dateFormatting(currentDate) >= dateFormatting(new Date());
 
-  const changeDate = (date) => {
+  const changeDate = (date: Date) => {
     setCurrentDate(date);
     onChange(date);
   };
@@ -50,5 +50,3 @@ function DatePicker({ onChange }) {
     </div>
   );
 }
-
-export default DatePicker;

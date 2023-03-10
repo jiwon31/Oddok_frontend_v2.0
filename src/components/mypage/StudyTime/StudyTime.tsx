@@ -1,4 +1,4 @@
-// import { useState } from "react";
+import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { DatePicker, TimeRecordList, TimeTable } from "components/mypage";
 import { dateFormatting } from "utils";
@@ -9,7 +9,8 @@ import formatTimeRecordData from "./StudyTime.helpers";
 export default function StudyTime() {
   const { pathname } = useLocation();
   const isSharePage = pathname === "/share/study-time";
-  // const [selectedDate, setSelectedDate] = useState<string>(dateFormatting(new Date()));
+  const [selectedDate, setSelectedDate] = useState<string>(dateFormatting(new Date()));
+  console.log(selectedDate);
 
   const {
     timeRecordQuery: { data: timeInfo },
@@ -32,7 +33,7 @@ export default function StudyTime() {
           {!isSharePage && (
             <div>
               <div className={styles.sub_heading}>날짜</div>
-              <DatePicker onChange={(date: Date) => dateFormatting(date)} />
+              <DatePicker onChange={(date: Date) => setSelectedDate(dateFormatting(date))} />
             </div>
           )}
           <div>
