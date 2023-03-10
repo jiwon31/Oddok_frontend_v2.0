@@ -1,16 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
 import TimeRecordApi from "api/time-record-api";
 import useRecoilUser from "hooks/useRecoilUser";
-import { dateFormatting } from "utils";
 
-export default function useTimeRecord(timeRecordApi = new TimeRecordApi()) {
+export default function useTimeRecord(selectedDate: string, timeRecordApi = new TimeRecordApi()) {
   const { user } = useRecoilUser();
 
   const timeRecordQuery = useQuery(
-    ["time-record", dateFormatting(new Date()), user?.id],
-    timeRecordApi.getTodayTimeRecord,
+    ["time-record", user?.id, selectedDate],
+    () => timeRecordApi.getTimeRecordByDate(selectedDate),
     {
-      staleTime: 1000 * 60 * 2,
+      staleTime: 1000 * 60 * 5,
       suspense: true,
       enabled: !!user,
     },

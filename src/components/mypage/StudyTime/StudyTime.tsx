@@ -10,20 +10,11 @@ export default function StudyTime() {
   const { pathname } = useLocation();
   const isSharePage = pathname === "/share/study-time";
   const [selectedDate, setSelectedDate] = useState<string>(dateFormatting(new Date()));
-  console.log(selectedDate);
 
   const {
     timeRecordQuery: { data: timeInfo },
-  } = useTimeRecord();
+  } = useTimeRecord(selectedDate);
   const { totalStudyTime, timeRecordData } = formatTimeRecordData(timeInfo);
-
-  // useEffect(() => {
-  //   try {
-  //     fetchTimeRecordData(selectedDate);
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // }, [selectedDate]);
 
   return (
     <section>
