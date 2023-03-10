@@ -9,8 +9,8 @@ function TimeTable({ timeRecordList }) {
         <TimeRecordBlock
           // eslint-disable-next-line react/no-array-index-key
           key={i}
-          startTime={record.startTime}
-          endTime={record.endTime}
+          startTime={new Date(record.startTime)}
+          endTime={new Date(record.endTime)}
           color={record.color}
         />
       ))}

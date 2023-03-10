@@ -10,4 +10,7 @@ export type StudyTimeInfo = {
   subject: string;
 };
 
-export type StudyTimeList = StudyTimeInfo[];
+export type DetailedStudyTimeInfo = StudyTimeInfo & {
+  color: string;
+  studyTime: string;
+};
