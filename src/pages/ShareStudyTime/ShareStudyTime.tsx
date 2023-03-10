@@ -1,16 +1,16 @@
-import React from "react";
 import { CloseButton, ShareButton } from "components/share";
 import { StudyTime } from "components/mypage";
+import AsyncBoundary from "components/boundary/AsyncBoundary";
 import styles from "./ShareStudyTime.module.css";
 
-function ShareStudyTime() {
+export default function ShareStudyTime() {
   return (
     <div className={styles.share_page}>
       <CloseButton />
-      <StudyTime />
+      <AsyncBoundary>
+        <StudyTime />
+      </AsyncBoundary>
       <ShareButton />
     </div>
   );
 }
-
-export default ShareStudyTime;
