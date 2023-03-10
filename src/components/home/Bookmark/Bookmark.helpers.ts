@@ -14,7 +14,7 @@ const initialUsers = [
   { id: 5, nickname: null, joinTime: null, isActive: false },
 ];
 
-export function getFilteredUsersOfBookmark(participants: BookmarkType["participant"]): BookmarkUser[] {
+export default function getFilteredUsersOfBookmark(participants: BookmarkType["participant"]): BookmarkUser[] {
   if (participants.length === 0) {
     return initialUsers;
   }
@@ -24,7 +24,7 @@ export function getFilteredUsersOfBookmark(participants: BookmarkType["participa
       users.push({ id: i + 1, nickname: null, joinTime: null, isActive: false });
     } else {
       const nickname = participants[i]!.nickname;
-      const joinTime = participants[i]!.joinTime.split(/[T, .]/)[1]!;
+      const joinTime = participants[i]!.joinTime.slice(11, 16);
       users.push({ id: i + 1, nickname, joinTime, isActive: true });
     }
   }

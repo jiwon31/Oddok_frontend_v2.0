@@ -2,7 +2,7 @@ import { BookmarkType } from "types/bookmark";
 import { PasswordModal, UserCount } from "components/commons";
 import { Thumbnail } from "assets/icons";
 import { useModal, useGoToPage } from "hooks";
-import { getFilteredUsersOfBookmark } from "utils/getFilteredUsersOfBookmark";
+import getFilteredUsersOfBookmark from "./Bookmark.helpers";
 import styles from "./Bookmark.module.css";
 
 export default function Bookmark({
