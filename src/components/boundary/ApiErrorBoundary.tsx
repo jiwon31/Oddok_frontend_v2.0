@@ -1,5 +1,5 @@
 import AsyncError from "components/commons/AsyncError/AsyncError";
-import ServerError from "pages/ServerError/ServerError/ServerError";
+import ServerError from "pages/ServerError/ServerError";
 import { Component, ReactNode } from "react";
 import { Navigate } from "react-router-dom";
 import { ErrorType } from "types/error";
