@@ -24,7 +24,7 @@ export default function MyGoalEditModal({ profileData, onClose }: MyGoalEditModa
   const { createProfile, updateProfile } = useProfile();
   const { successToast } = useToast();
 
-  const selectDate = (date: string) => {
+  const selectDate = (date: Date) => {
     setInputData((prev) => ({ ...prev, dday: dateFormatting(date) }));
   };
   const inputDdayInfo = (e: React.ChangeEvent<HTMLInputElement>) => {
