@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./TimeTableGrid.module.css";
 
-function TimeTableGrid({ children }) {
+const TimeTableGrid = function TimeTableGrid({ children }: { children?: JSX.Element }) {
   const render = () => {
     const result = [];
     for (let i = 0; i < 6 * 24; i += 1) {
@@ -15,6 +15,6 @@ function TimeTableGrid({ children }) {
       {children}
     </div>
   );
-}
+};
 
 export default React.memo(TimeTableGrid);
