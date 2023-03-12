@@ -1,15 +1,15 @@
-import React from "react";
-import TimeRecordItem from "./TimeRecordItem";
+import { DetailedStudyTimeInfo } from "types/time-record";
+import TimeRecordItem from "../TimeRecordItem/TimeRecordItem";
 import styles from "./TimeRecordList.module.css";
 
-function TimeRecordList({ list }) {
+export default function TimeRecordList({ list }: { list: DetailedStudyTimeInfo[] }) {
   return (
     <div className={styles.wrapper}>
-      {list?.map((item, i) => (
+      {list.map((item, i) => (
         <TimeRecordItem
           // eslint-disable-next-line react/no-array-index-key
           key={i}
-          color={item.color} //
+          color={item.color}
           title={item.subject}
           studyTime={item.studyTime}
         />
@@ -17,5 +17,3 @@ function TimeRecordList({ list }) {
     </div>
   );
 }
-
-export default TimeRecordList;

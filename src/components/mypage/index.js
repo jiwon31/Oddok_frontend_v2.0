@@ -9,5 +9,5 @@ export { default as Room } from "./Room/Room";
 export { default as SideNavBar } from "./SideNavBar/SideNavBar";
 export { default as StudyTime } from "./StudyTime/StudyTime";
 export { default as TimeTable } from "./TimeTable/TimeTable";
-export { default as TimeRecordList } from "./TimeRecordList/TimeRecordList";
+export { default as TimeRecordList } from "./TimeRecordList/TimeRecordList/TimeRecordList";
 export { default as AccountDeleteModal } from "./AccountDeleteModal/AccountDeleteModal";

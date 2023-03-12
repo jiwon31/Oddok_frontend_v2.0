@@ -1,7 +1,12 @@
-import React from "react";
 import styles from "./TimeRecordItem.module.css";
 
-function TimeRecordItem({ color, title, studyTime }) {
+type TimeRecordItemProps = {
+  color: string;
+  title: string;
+  studyTime: string;
+};
+
+export default function TimeRecordItem({ color, title, studyTime }: TimeRecordItemProps) {
   return (
     <li className={styles.item}>
       <div className={styles.title}>
@@ -12,5 +17,3 @@ function TimeRecordItem({ color, title, studyTime }) {
     </li>
   );
 }
-
-export default TimeRecordItem;
